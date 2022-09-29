@@ -1,0 +1,98 @@
+1663661353323	geckodriver	INFO	Listening on 127.0.0.1:53409
+1663661356397	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53410" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\trungpn\\AppData\\Local\\Temp\\rust_mozprofile47gwba"
+1663661356637	Marionette	INFO	Marionette enabled
+1663661356641	Marionette	INFO	Listening on port 53420
+WebDriver BiDi listening on ws://localhost:53410
+Read port: 53420
+1663661356834	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\trungpn\\AppData\\Local\\Temp\\rust_mozprofile47gwba\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53410/devtools/browser/7d8ca7ce-b864-4305-b9bf-2e1e68bb0bf3
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iX3c4/yM/l/en_GB/emN-LqTCPhn.js?_nc_x=Ij3Wp8lg5Kz, line 21: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript error: https://static.xx.fbcdn.net/rsrc.php/v3ivrU4/yI/l/makehaste_jhash/-7Zk3zTtujTqTMHJ_yyJNHrfq448KdxVWv7e2fEPb49fuVSWxk2k4ZHbkzGw4ft50-1mR_B_YdyzR-FvqvRdLzeQAVcnV050ZVIA90USlP0cN5wprycJUbEFhPmFaQYf8WPl_kvDi_aHmQdzB4y4xJNj72rPrFdloSpfHZC2g9YVF8pv40otU4b8_-GoYgtg2KrU-lw_JFF2Gf-oJ8Ex0MhVzj4YhWqqVvWZtBOKLYrpMVPTEPuoyAVvDbiUb2RQo0ImMfsPc_iuvEOxs1Fa3_yAJ2oPV-i64aAjdHIZ2M7L1DCb7PtdxK3I7NiAsegY7dl9ODaGeI.js?_nc_x=cZQNSqe8Cqd, line 649: Error: Minified React error #418; visit https://reactjs.org/docs/error-decoder.html?invariant=418 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+JavaScript error: https://static.xx.fbcdn.net/rsrc.php/v3ivrU4/yI/l/makehaste_jhash/-7Zk3zTtujTqTMHJ_yyJNHrfq448KdxVWv7e2fEPb49fuVSWxk2k4ZHbkzGw4ft50-1mR_B_YdyzR-FvqvRdLzeQAVcnV050ZVIA90USlP0cN5wprycJUbEFhPmFaQYf8WPl_kvDi_aHmQdzB4y4xJNj72rPrFdloSpfHZC2g9YVF8pv40otU4b8_-GoYgtg2KrU-lw_JFF2Gf-oJ8Ex0MhVzj4YhWqqVvWZtBOKLYrpMVPTEPuoyAVvDbiUb2RQo0ImMfsPc_iuvEOxs1Fa3_yAJ2oPV-i64aAjdHIZ2M7L1DCb7PtdxK3I7NiAsegY7dl9ODaGeI.js?_nc_x=cZQNSqe8Cqd, line 649: Error: Minified React error #423; visit https://reactjs.org/docs/error-decoder.html?invariant=423 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3i4SV4/yV/l/makehaste_jhash/YPWc5EZYnNu.js?_nc_x=cZQNSqe8Cqd, line 166: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1663661623125	Marionette	INFO	Stopped listening on port 53420
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+remote-debugging-port" "54358" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\trungpn\\AppData\\Local\\Temp\\rust_mozprofileNOxxHO"
+1663661458457	Marionette	INFO	Marionette enabled
+1663661458460	Marionette	INFO	Listening on port 54368
+WebDriver BiDi listening on ws://localhost:54358
+Read port: 54368
+1663661458660	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\trungpn\\AppData\\Local\\Temp\\rust_mozprofileNOxxHO\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54358/devtools/browser/e2a2ed3d-fd7f-4993-8ec4-9168b1647a13
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iX3c4/yM/l/en_GB/emN-LqTCPhn.js?_nc_x=Ij3Wp8lg5Kz, line 21: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript error: https://static.xx.fbcdn.net/rsrc.php/v3ivrU4/yI/l/makehaste_jhash/-7Zk3zTtujTqTMHJ_yyJNHrfq448KdxVWv7e2fEPb49fuVSWxk2k4ZHbkzGw4ft50-1mR_B_YdyzR-FvqvRdLzeQAVcnV050ZVIA90USlP0cN5wprycJUbEFhPmFaQYf8WPl_kvDi_aHmQdzB4y4xJNj72rPrFdloSpfHZC2g9YVF8pv40otU4b8_-GoYgtg2KrU-lw_JFF2Gf-oJ8Ex0MhVzj4YhWqqVvWZtBOKLYrpMVPTEPuoyAVvDbiUb2RQo0ImMfsPc_iuvEOxs1Fa3_yAJ2oPV-i64aAjdHIZ2M7L1DCb7PtdxK3I7NiAsegY7dl9ODaGeI.js?_nc_x=cZQNSqe8Cqd, line 649: Error: Minified React error #418; visit https://reactjs.org/docs/error-decoder.html?invariant=418 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+JavaScript error: https://static.xx.fbcdn.net/rsrc.php/v3ivrU4/yI/l/makehaste_jhash/-7Zk3zTtujTqTMHJ_yyJNHrfq448KdxVWv7e2fEPb49fuVSWxk2k4ZHbkzGw4ft50-1mR_B_YdyzR-FvqvRdLzeQAVcnV050ZVIA90USlP0cN5wprycJUbEFhPmFaQYf8WPl_kvDi_aHmQdzB4y4xJNj72rPrFdloSpfHZC2g9YVF8pv40otU4b8_-GoYgtg2KrU-lw_JFF2Gf-oJ8Ex0MhVzj4YhWqqVvWZtBOKLYrpMVPTEPuoyAVvDbiUb2RQo0ImMfsPc_iuvEOxs1Fa3_yAJ2oPV-i64aAjdHIZ2M7L1DCb7PtdxK3I7NiAsegY7dl9ODaGeI.js?_nc_x=cZQNSqe8Cqd, line 649: Error: Minified React error #423; visit https://reactjs.org/docs/error-decoder.html?invariant=423 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3i4SV4/yV/l/makehaste_jhash/YPWc5EZYnNu.js?_nc_x=cZQNSqe8Cqd, line 166: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1663661483281	Marionette	INFO	Stopped listening on port 54368
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1663661485880	geckodriver	INFO	Listening on 127.0.0.1:55294
+1663661489025	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55295" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\trungpn\\AppData\\Local\\Temp\\rust_mozprofileCWOtxC"
+1663661489306	Marionette	INFO	Marionette enabled
+1663661489309	Marionette	INFO	Listening on port 55355
+WebDriver BiDi listening on ws://localhost:55295
+Read port: 55355
+1663661489403	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\trungpn\\AppData\\Local\\Temp\\rust_mozprofileCWOtxC\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55295/devtools/browser/33ac9c36-4372-4574-b917-514d63c56f0d
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iX3c4/yM/l/en_GB/emN-LqTCPhn.js?_nc_x=Ij3Wp8lg5Kz, line 21: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript error: https://static.xx.fbcdn.net/rsrc.php/v3ivrU4/yI/l/makehaste_jhash/-7Zk3zTtujTqTMHJ_yyJNHrfq448KdxVWv7e2fEPb49fuVSWxk2k4ZHbkzGw4ft50-1mR_B_YdyzR-FvqvRdLzeQAVcnV050ZVIA90USlP0cN5wprycJUbEFhPmFaQYf8WPl_kvDi_aHmQdzB4y4xJNj72rPrFdloSpfHZC2g9YVF8pv40otU4b8_-GoYgtg2KrU-lw_JFF2Gf-oJ8Ex0MhVzj4YhWqqVvWZtBOKLYrpMVPTEPuoyAVvDbiUb2RQo0ImMfsPc_iuvEOxs1Fa3_yAJ2oPV-i64aAjdHIZ2M7L1DCb7PtdxK3I7NiAsegY7dl9ODaGeI.js?_nc_x=cZQNSqe8Cqd, line 649: Error: Minified React error #418; visit https://reactjs.org/docs/error-decoder.html?invariant=418 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+JavaScript error: https://static.xx.fbcdn.net/rsrc.php/v3ivrU4/yI/l/makehaste_jhash/-7Zk3zTtujTqTMHJ_yyJNHrfq448KdxVWv7e2fEPb49fuVSWxk2k4ZHbkzGw4ft50-1mR_B_YdyzR-FvqvRdLzeQAVcnV050ZVIA90USlP0cN5wprycJUbEFhPmFaQYf8WPl_kvDi_aHmQdzB4y4xJNj72rPrFdloSpfHZC2g9YVF8pv40otU4b8_-GoYgtg2KrU-lw_JFF2Gf-oJ8Ex0MhVzj4YhWqqVvWZtBOKLYrpMVPTEPuoyAVvDbiUb2RQo0ImMfsPc_iuvEOxs1Fa3_yAJ2oPV-i64aAjdHIZ2M7L1DCb7PtdxK3I7NiAsegY7dl9ODaGeI.js?_nc_x=cZQNSqe8Cqd, line 649: Error: Minified React error #423; visit https://reactjs.org/docs/error-decoder.html?invariant=423 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3i4SV4/yV/l/makehaste_jhash/YPWc5EZYnNu.js?_nc_x=cZQNSqe8Cqd, line 166: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1663661635172	Marionette	INFO	Stopped listening on port 55355
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+remote-debugging-port" "56399" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\trungpn\\AppData\\Local\\Temp\\rust_mozprofileN8T8jY"
+1663661545796	Marionette	INFO	Marionette enabled
+1663661545800	Marionette	INFO	Listening on port 56411
+WebDriver BiDi listening on ws://localhost:56399
+Read port: 56411
+1663661546008	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\trungpn\\AppData\\Local\\Temp\\rust_mozprofileN8T8jY\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:56399/devtools/browser/89a584ed-abe6-4fa4-b849-c12bcac43d49
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iX3c4/yt/l/en_GB/jH2CtJGBFuS.js?_nc_x=Ij3Wp8lg5Kz, line 21: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript error: https://static.xx.fbcdn.net/rsrc.php/v3ivrU4/yI/l/makehaste_jhash/-7Zk3zTtujTqTMHJ_yyJNHrfq448KdxVWv7e2fEPb49fuVSWxk2k4ZHbkzGw4ft50-1mR_B_YdyzR-FvqvRdLzeQAVcnV050ZVIA90USlP0cN5wprycJUbEFhPmFaQYf8WPl_kvDi_aHmQdzB4y4xJNj72rPrFdloSpfHZC2g9YVF8pv40otU4b8_-GoYgtg2KrU-lw_JFF2Gf-oJ8Ex0MhVzj4YhWqqVvWZtBOKLYrpMVPTEPuoyAVvDbiUb2RQo0ImMfsPc_iuvEOxs1Fa3_yAJ2oPV-i64aAjdHIZ2M7L1DCb7PtdxK3I7NiAsegY7dl9ODaGeI.js?_nc_x=cZQNSqe8Cqd, line 649: Error: Minified React error #418; visit https://reactjs.org/docs/error-decoder.html?invariant=418 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+JavaScript error: https://static.xx.fbcdn.net/rsrc.php/v3ivrU4/yI/l/makehaste_jhash/-7Zk3zTtujTqTMHJ_yyJNHrfq448KdxVWv7e2fEPb49fuVSWxk2k4ZHbkzGw4ft50-1mR_B_YdyzR-FvqvRdLzeQAVcnV050ZVIA90USlP0cN5wprycJUbEFhPmFaQYf8WPl_kvDi_aHmQdzB4y4xJNj72rPrFdloSpfHZC2g9YVF8pv40otU4b8_-GoYgtg2KrU-lw_JFF2Gf-oJ8Ex0MhVzj4YhWqqVvWZtBOKLYrpMVPTEPuoyAVvDbiUb2RQo0ImMfsPc_iuvEOxs1Fa3_yAJ2oPV-i64aAjdHIZ2M7L1DCb7PtdxK3I7NiAsegY7dl9ODaGeI.js?_nc_x=cZQNSqe8Cqd, line 649: Error: Minified React error #423; visit https://reactjs.org/docs/error-decoder.html?invariant=423 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3i4SV4/yV/l/makehaste_jhash/YPWc5EZYnNu.js?_nc_x=cZQNSqe8Cqd, line 166: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.facebook.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1663661776451	Marionette	INFO	Stopped listening on port 56411
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
