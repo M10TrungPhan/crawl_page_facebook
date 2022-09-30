@@ -163,6 +163,7 @@ class PageFacebook:
         while (self.post_queue.qsize() > 0) or (self.next_page is not None):
             self.logger.info(f"NUMBER POST HAVE CRAWLED: {self.number_post}")
             time.sleep(60*30)
+            self.token_and_cookies.get_token_and_cookies()
 
     def process_page(self):
         self.create_folder_save_data()

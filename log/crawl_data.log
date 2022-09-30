@@ -31,3 +31,18 @@
 2022-09-29 15:59:58,191 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
 2022-09-29 16:00:42,494 | PageFacebook | [INFO] | CRAWL PAGE: neuconfessions. ID PAGE: 484451281604769
 2022-09-29 16:00:42,495 | PageFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-09-30 08:43:57,329 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/divodivavietnam
+2022-09-30 08:43:57,329 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-09-30 08:44:11,271 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-09-30 08:44:39,051 | PageFacebook | [INFO] | CRAWL PAGE: divodivavietnam. ID PAGE: 100751628779361
+2022-09-30 08:44:39,075 | PageFacebook | [INFO] | NUMBER OF POST IN divodivavietnam: 0
+2022-09-30 08:44:49,090 | PageFacebook | [INFO] | FINISHED CRAWL PAGE divodivavietnam. NUMBER POST HAVE CRAWLED: 0
+2022-09-30 08:44:49,095 | CrawlFacebook | [INFO] | FINISHED CRAWL https://www.facebook.com/divodivavietnam
+2022-09-30 08:44:49,097 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/neuconfessions/
+2022-09-30 08:44:49,098 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-09-30 08:45:04,903 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-09-30 08:45:45,924 | PageFacebook | [INFO] | CRAWL PAGE: neuconfessions. ID PAGE: 484451281604769
+2022-09-30 08:45:45,926 | PageFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-09-30 08:57:18,104 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/cgvcinemavietnam/
+2022-09-30 08:57:18,105 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-09-30 08:57:31,719 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn

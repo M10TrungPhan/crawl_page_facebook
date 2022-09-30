@@ -5,7 +5,10 @@ if __name__ == "__main__":
     user = "hieudan3123@outlook.com.vn"
     password = "A@123B@123"
     dir_data = "//172.29.13.24/tmtaishare/Data/facebook/"
-    list_url = ["https://www.facebook.com/divodivavietnam", "https://www.facebook.com/neuconfessions/",
+    list_url = ["https://www.facebook.com/cgvcinemavietnam/",
+                "https://www.facebook.com/tintucvtv24",
+                "https://www.facebook.com/tinhte",
+                "https://www.facebook.com/neuconfessions/",
                 "https://www.facebook.com/Biettheeodilam"]
 
     for url_page in list_url:
