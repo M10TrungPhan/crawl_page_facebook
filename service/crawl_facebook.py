@@ -9,11 +9,11 @@ from config.config import Config
 
 class CrawlFacebook(Thread):
 
-    def __init__(self, user_name, password_facebook, url_page):
+    def __init__(self, url_page):
         super(CrawlFacebook, self).__init__()
         self.config = Config()
         self.logger = logging.getLogger(self.__class__.__name__)
-        self.token_and_cookies = TokenAndCookies(user_name, password_facebook)
+        self.token_and_cookies = TokenAndCookies()
         self.url_page = url_page
         self.path_save_data = self.config.path_save_data
 
@@ -25,5 +25,3 @@ class CrawlFacebook(Thread):
         page = PageFacebook(self.url_page, self.token_and_cookies, self.path_save_data)
         page.process_page()
         self.logger.info(f"FINISHED CRAWL {self.url_page}")
-
-
