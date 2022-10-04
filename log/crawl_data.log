@@ -4122,3 +4122,34 @@ pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: shopee.
 2022-10-04 14:27:14,479 | TokenAndCookies | [INFO] | USING ACCOUNT: hieudan3123@outlook.com.vn
 2022-10-04 14:27:14,479 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
 2022-10-04 14:27:28,043 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-04 16:02:45,738 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/ShopITBooks/
+2022-10-04 16:02:45,845 | TokenAndCookies | [INFO] | USING ACCOUNT: hieudan3123@outlook.com.vn
+2022-10-04 16:02:45,846 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-04 16:03:01,790 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-04 16:03:30,146 | PageFacebook | [INFO] | NUMBER OF POST CRAWLED: 100
+2022-10-04 16:03:32,323 | PageFacebook | [INFO] | CRAWL PAGE: It Books. ID PAGE: 323462315093573
+2022-10-04 16:03:32,324 | PageFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-10-04 16:03:32,325 | PageFacebook | [INFO] | NUMBER POST IN QUEUES: 0
+2022-10-04 16:03:35,279 | PageFacebook | [INFO] | NUMBER OF POST IN It Books: 0
+2022-10-04 16:03:42,334 | PageFacebook | [INFO] | FINISHED CRAWL PAGE It Books. NUMBER POST HAVE CRAWLED: 0
+2022-10-04 16:03:42,334 | CrawlFacebook | [INFO] | FINISHED CRAWL https://www.facebook.com/ShopITBooks/
+2022-10-04 16:03:42,334 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/dabaoconceptheritage
+2022-10-04 16:03:42,339 | TokenAndCookies | [INFO] | USING ACCOUNT: hieudan3123@outlook.com.vn
+2022-10-04 16:03:42,339 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-04 16:03:55,901 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-04 16:04:32,935 | PageFacebook | [INFO] | NUMBER OF POST CRAWLED: 19
+2022-10-04 16:04:34,497 | PageFacebook | [INFO] | CRAWL PAGE: Dabao concept - Heritage. ID PAGE: 102464141693850
+2022-10-04 16:04:34,498 | PageFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-10-04 16:04:34,499 | PageFacebook | [INFO] | NUMBER POST IN QUEUES: 0
+2022-10-04 16:04:35,688 | PageFacebook | [INFO] | NUMBER OF POST IN Dabao concept - Heritage: 0
+2022-10-04 16:04:44,508 | PageFacebook | [INFO] | FINISHED CRAWL PAGE Dabao concept - Heritage. NUMBER POST HAVE CRAWLED: 0
+2022-10-04 16:04:44,508 | CrawlFacebook | [INFO] | FINISHED CRAWL https://www.facebook.com/dabaoconceptheritage
+2022-10-04 16:04:44,508 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/1phutSaiGon/
+2022-10-04 16:04:44,513 | TokenAndCookies | [INFO] | USING ACCOUNT: hieudan3123@outlook.com.vn
+2022-10-04 16:04:44,514 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-04 16:04:58,105 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-04 16:05:33,435 | PageFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-10-04 16:05:34,884 | PageFacebook | [INFO] | CRAWL PAGE: 1 phút Sài Gòn. ID PAGE: 364926780341289
+2022-10-04 16:05:34,885 | PageFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-10-04 16:05:34,886 | PageFacebook | [INFO] | NUMBER POST IN QUEUES: 100
+2022-10-04 16:06:56,874 | PageFacebook | [INFO] | NUMBER OF POST IN 1 phút Sài Gòn: 2179
