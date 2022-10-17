@@ -1,7 +1,5 @@
 from service.crawl_facebook import CrawlFacebook
-import uvicorn
-from common.common_keys import *
-from database.facebook_db import AccountFacebookCollection
+
 
 if __name__ == "__main__":
     #
