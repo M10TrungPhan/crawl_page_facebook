@@ -5,18 +5,21 @@ import logging
 
 from object.token_and_cookies import TokenAndCookies
 from object.comment_facebook import CommentFacebook
+from database.facebook_db import FacebookCollection
 
 
 class PostFacebook:
 
-    def __init__(self, id_post, token_and_cookies: TokenAndCookies, path_save_data):
+    def __init__(self, id_post, token_and_cookies: TokenAndCookies, path_save_data, name_page):
         self.logger = logging.getLogger(self.__class__.__name__)
+        self.name_page = name_page
         self.path_save_data = path_save_data
         self.id_post = id_post
         self.token_and_cookies = token_and_cookies
         self.next_post = ""
         self.content = None
         self.image = None
+        self.fb_data = FacebookCollection()
         self.link_image = []
         self.comment = []
         self.comment_after_process = []
@@ -41,6 +44,7 @@ class PostFacebook:
         for each in self.token_and_cookies.load_cookies():
             requestJar.set(each["name"], each["value"])
         jsonformat = None
+
         for i in range(5):
             try:
                 response = requests.get(url, cookies=requestJar)
@@ -50,7 +54,9 @@ class PostFacebook:
                 break
             except:
                 continue
+
         if jsonformat is None:
+            self.next_post = None
             return
         try:
             self.next_post = jsonformat["paging"]["next"]
@@ -98,13 +104,17 @@ class PostFacebook:
 
     def check_token_valid(self, jsonformat):
         if "error" in jsonformat.keys():
-            self.token_and_cookies.update_new_token()
-            return True
-        return False
+            if jsonformat["error"]["code"] == 102:
+                self.token_and_cookies.update_new_token()
+                return True
+            if jsonformat["error"]["code"] == 100:
+                return False
+            return False
 
     @property
     def dict_post(self):
-        return {"id_post": self.id_post,
+        return {"_id": self.id_post,
+                "name_page": self.name_page,
                 "image": self.link_image,
                 "content": self.content,
                 "comment": self.comment_after_process}
@@ -123,4 +133,5 @@ class PostFacebook:
                 self.comment_after_process.append(result.result())
         json.dump(self.dict_post, open(self.path_save_data + self.id_post+".json", "w", encoding="utf-8"),
                   ensure_ascii=False, indent=4)
+        # self.fb_data.save_data(self.dict_post)
         return True

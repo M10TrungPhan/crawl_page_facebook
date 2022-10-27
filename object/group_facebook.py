@@ -1,6 +1,7 @@
 import logging
 import os
 import json
+import random
 import re
 import requests
 import time
@@ -14,17 +15,17 @@ from database.facebook_db import FacebookCollection
 from config.config import Config
 from utils.utils import setup_selenium_firefox
 from object.token_and_cookies import TokenAndCookies
-from object.post_facebook import PostFacebook
+from object.post_group_facebook import PostGroupFacebook
 
 
-class PageFacebook:
+class GroupFacebook:
 
     def __init__(self, url, token_and_cookies: TokenAndCookies, path_save_data):
-        self.url = url
+        self.url_group = url
         self.config = Config()
         self.type = None
-        self.id_page = None
-        self.name_page = None
+        self.id_group = None
+        self.name_group = None
         self.logger = logging.getLogger(self.__class__.__name__)
         self.token_and_cookies = token_and_cookies
         self.token_and_cookies.get_token_and_cookies()
@@ -40,12 +41,7 @@ class PageFacebook:
         self.fb_data = FacebookCollection()
 
     def get_name(self):
-        # _, end = re.search(r"www.facebook.com/", self.url).span()
-        # name = self.url[end:].replace("/", "_")
-        # if name[-1] == "_":
-        #     name = name[:-1]
-        # self.name_page = name
-        url = f"https://graph.facebook.com/v15.0/{self.id_page}?" \
+        url = f"https://graph.facebook.com/v15.0/{self.id_group}?" \
               f"access_token={self.token_and_cookies.load_token_access()}"
         requestJar = requests.cookies.RequestsCookieJar()
         for each in self.token_and_cookies.load_cookies():
@@ -63,12 +59,12 @@ class PageFacebook:
         if jsonformat is None:
             return
         if "name" in jsonformat.keys():
-            name_page = jsonformat["name"]
+            name_group = jsonformat["name"]
         else:
-            name_page = "unknown"
-        name_page = re.sub(r"[\\/*:?\"><|,]", "_", name_page)
-        self.name_page = name_page
-        return self.name_page
+            name_group = "unknown"
+        name_group = re.sub(r"[\\/*:?\"><|,]", "_", name_group)
+        self.name_group = name_group
+        return self.name_group
 
     def get_id(self):
         driver = setup_selenium_firefox()
@@ -76,39 +72,36 @@ class PageFacebook:
         cookies_file = self.token_and_cookies.load_cookies()
         for cook in cookies_file:
             driver.add_cookie(cook)
-        driver.get("view-source:" + self.url)
+        driver.get("view-source:" + self.url_group)
         time.sleep(2)
         soup = BeautifulSoup(driver.page_source, "lxml")
         driver.close()
         string_ss = soup.text
-        regex_page_id = re.search(r"(\"pageID\":\"\d+\")", string_ss)
+        regex_page_id = re.search(r"(\"groupID\":\"\d+\")", string_ss)
 
-        if regex_page_id is None:
-            regex_page_id = re.search(r"(\"profile_delegate_page_id\":\"\d+\")", string_ss)
-
-        if regex_page_id is None:
-            regex_page_id = re.search(r"(\"delegate_page\":{\"id\":\"\d+\"})", string_ss)
+        # if regex_page_id is None:
+        #     regex_page_id = re.search(r"(\"profile_delegate_page_id\":\"\d+\")", string_ss)
+        #
+        # if regex_page_id is None:
+        #     regex_page_id = re.search(r"(\"delegate_page\":{\"id\":\"\d+\"})", string_ss)
 
         start, end = regex_page_id.span()
         dict_id = string_ss[start:end]
         start_id, end_id = re.search(r"(:\"\d+\")", dict_id).span()
         id_objects = dict_id[start_id + 2: end_id - 1]
-        self.id_page = id_objects
+        self.id_group = id_objects
         return id_objects
 
     def load_post_id_have_crawled(self):
-
-        # name_folder = self.path_save_data + self.name_page + "/"
-        # list_id = os.listdir(name_folder)
-        # list_id = [each.replace(".json", "") for each in list_id]
-        # self.post_id_crawled = list_id
-        list_id = self.fb_data.get_list_id_for_page(self.name_page)
+        list_id = self.fb_data.get_list_id_for_page(self.name_group)
+        if not len(list_id):
+            list_id = [each.replace(".json", "") for each in os.listdir(self.path_save_data + self.name_group + "/") ]
         self.post_id_crawled = list_id
         self.logger.info(f"NUMBER OF POST CRAWLED: {len(self.post_id_crawled)}")
         return self.post_id_crawled
 
     def request_first_page(self):
-        url = f"https://graph.facebook.com/v15.0/{self.id_page}/posts?" \
+        url = f"https://graph.facebook.com/v15.0/{self.id_group}/feed?" \
               f"&access_token={self.token_and_cookies.load_token_access()}&limit=100"
         requestJar = requests.cookies.RequestsCookieJar()
         for each in self.token_and_cookies.load_cookies():
@@ -133,8 +126,9 @@ class PageFacebook:
             for each in jsonformat["data"]:
                 if each["id"] in self.post_id_crawled:
                     continue
-                postfb = PostFacebook(each["id"], self.token_and_cookies,
-                                      self.path_save_data + self.name_page + "/", self.name_page)
+                id_post = each["id"]
+                postfb = PostGroupFacebook(self.url_group, id_post, self.token_and_cookies,
+                                           self.path_save_data + self.name_group + "/", self.name_group)
                 postfb.content = each["message"]
                 self.post_queue.put(postfb)
         except KeyError:
@@ -166,13 +160,14 @@ class PageFacebook:
                 for each in jsonformat["data"]:
                     if each["id"] in self.post_id_crawled:
                         continue
-                    postfb = PostFacebook(each["id"], self.token_and_cookies,
-                                          self.path_save_data + self.name_page + "/", self.name_page)
+                    id_post = each["id"]
+                    postfb = PostGroupFacebook(self.url_group, id_post, self.token_and_cookies,
+                                               self.path_save_data + self.name_group + "/", self.name_group)
                     postfb.content = each["message"]
                     self.post_queue.put(postfb)
             except KeyError:
                 pass
-        self.logger.info(f"NUMBER OF POST IN {self.name_page}: {self.post_queue.qsize()}")
+        self.logger.info(f"NUMBER OF POST IN {self.name_group}: {self.post_queue.qsize()}")
 
     def check_token_valid(self, jsonformat):
         if "error" in jsonformat.keys():
@@ -184,13 +179,19 @@ class PageFacebook:
             return False
 
     def create_folder_save_data(self):
-        os.makedirs(self.path_save_data + self.name_page + "/", exist_ok=True)
+        os.makedirs(self.path_save_data + self.name_group + "/", exist_ok=True)
 
     def crawl_post(self):
         if not self.post_queue.qsize():
             return
         post_process = self.post_queue.get()
-        post_process.process_post()
+        try:
+            post_process.process_post()
+        except Exception as e:
+            print(e)
+            print(post_process.id_post)
+            post_process.driver.close()
+        print("_____________________________________________")
         if post_process:
             self.post_id_crawled.append(post_process.dict_post["_id"])
             self.number_post += 1
@@ -201,23 +202,19 @@ class PageFacebook:
             self.logger.info(f"NUMBER POST IN QUEUES: {self.post_queue.qsize()}")
             time.sleep(60 * 30)
 
-    def process_page(self):
+    def process_group(self):
         self.create_folder_save_data()
-        # self.load_post_id_have_crawled()
+        self.load_post_id_have_crawled()
         self.request_first_page()
-        self.logger.info(f"CRAWL PAGE: {self.name_page}. ID PAGE: {self.id_page}")
+        self.logger.info(f"CRAWL PAGE: {self.name_group}. ID PAGE: {self.id_group}")
         thread_request_next_page = Thread(target=self.request_next_page)
         thread_request_next_page.start()
         thread_status = Thread(target=self.thread_check_status)
         thread_status.start()
         time.sleep(10)
-        # number_loop = 0
         while (self.post_queue.qsize() > 0) or (self.next_page is not None):
-            # number_loop += 1
-            with concurrent.futures.ThreadPoolExecutor(max_workers=self.config.number_of_crawler) as executor:
-                [executor.submit(self.crawl_post) for _ in range(self.config.number_of_crawler)]
-            # if not (number_loop % 10):
-            #     print(f"NUMBER LOOP {number_loop}")
-            #     self.token_and_cookies.get_token_and_cookies()
+            with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+                [executor.submit(self.crawl_post) for _ in range(1)]
+            time.sleep(random.randint(1, 10))
         thread_request_next_page.join()
-        self.logger.info(f"FINISHED CRAWL PAGE {self.name_page}. NUMBER POST HAVE CRAWLED: {self.number_post}")
+        self.logger.info(f"FINISHED CRAWL PAGE {self.name_group}. NUMBER POST HAVE CRAWLED: {self.number_post}")

@@ -1,9 +1,11 @@
 import time
 import re
 import logging
+import pickle
 
 from bs4 import BeautifulSoup
 
+from service.manage_account_facebook import ManageAccountFacebook
 from utils.utils import setup_selenium_firefox
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -11,15 +13,25 @@ from selenium.webdriver.common.by import By
 
 class TokenAndCookies:
 
-    def __init__(self, user, password):
-        self.user = user
-        self.password = password
+    def __init__(self):
+        self.user = None
+        self.password = None
+        self.account_facebook_db = ManageAccountFacebook()
         self.logger = logging.getLogger(self.__class__.__name__)
         self.cookies = None
         self.token_access = None
         self.flag_update_token = False
 
+    def get_random_account_facebook(self):
+        account = self.account_facebook_db.select_random_account()
+        if account is None:
+            return
+        self.user = account["user"]
+        self.password = account["password"]
+        self.logger.info(f"USING ACCOUNT: {self.user}")
+
     def login_facebook_and_get_cookies(self):
+        self.get_random_account_facebook()
         self.logger.info(f"GET COOKIES FROM FACEBOOK WITH ACCOUNT {self.user}")
         driver = setup_selenium_firefox()
         driver.get("https://www.facebook.com/")
@@ -31,6 +43,8 @@ class TokenAndCookies:
         password_box.send_keys(Keys.ENTER)
         time.sleep(5)
         cookies = driver.get_cookies()
+        with open("cookies.pickle", "wb") as f:
+            pickle.dump(cookies, f)
         driver.close()
         self.cookies = cookies
         return self.cookies
@@ -46,7 +60,7 @@ class TokenAndCookies:
         for cook in cookies_file:
             driver.add_cookie(cook)
         driver.get("view-source:https://business.facebook.com/content_management")
-        time.sleep(2)
+        time.sleep(5)
         soup = BeautifulSoup(driver.page_source, "lxml")
         driver.close()
         string_ss = soup.text
