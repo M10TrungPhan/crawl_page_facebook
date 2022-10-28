@@ -40,11 +40,6 @@ class PageFacebook:
         self.fb_data = FacebookCollection()
 
     def get_name(self):
-        # _, end = re.search(r"www.facebook.com/", self.url).span()
-        # name = self.url[end:].replace("/", "_")
-        # if name[-1] == "_":
-        #     name = name[:-1]
-        # self.name_page = name
         url = f"https://graph.facebook.com/v15.0/{self.id_page}?" \
               f"access_token={self.token_and_cookies.load_token_access()}"
         requestJar = requests.cookies.RequestsCookieJar()
@@ -82,13 +77,10 @@ class PageFacebook:
         driver.close()
         string_ss = soup.text
         regex_page_id = re.search(r"(\"pageID\":\"\d+\")", string_ss)
-
         if regex_page_id is None:
             regex_page_id = re.search(r"(\"profile_delegate_page_id\":\"\d+\")", string_ss)
-
         if regex_page_id is None:
             regex_page_id = re.search(r"(\"delegate_page\":{\"id\":\"\d+\"})", string_ss)
-
         start, end = regex_page_id.span()
         dict_id = string_ss[start:end]
         start_id, end_id = re.search(r"(:\"\d+\")", dict_id).span()
@@ -97,11 +89,6 @@ class PageFacebook:
         return id_objects
 
     def load_post_id_have_crawled(self):
-
-        # name_folder = self.path_save_data + self.name_page + "/"
-        # list_id = os.listdir(name_folder)
-        # list_id = [each.replace(".json", "") for each in list_id]
-        # self.post_id_crawled = list_id
         list_id = self.fb_data.get_list_id_for_page(self.name_page)
         self.post_id_crawled = list_id
         self.logger.info(f"NUMBER OF POST CRAWLED: {len(self.post_id_crawled)}")

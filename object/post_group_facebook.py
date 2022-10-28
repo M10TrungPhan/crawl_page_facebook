@@ -30,6 +30,7 @@ class PostGroupFacebook:
         self.comment = []
         self.flag_driver = False
         self.flag_time_out = False
+        self.number_comment = None
 
     @staticmethod
     def preprocess_id_post(id_post):
@@ -162,35 +163,56 @@ class PostGroupFacebook:
             time.sleep(2)
 
     def get_content(self):
+
         soup = self.parse_html()
         content = ""
         content_tag = soup.find("div", class_="x1swvt13 x1l90r2v x1pi30zi x1iorvi4")
-        if content_tag is None:
-            content_tag_new = soup.find("span",
-                                        class_="x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x xudqn12 x3x7a5m x1f6kntn xvq8zen xo1l8bm xzsf02u x1yc453h")
-            print("CONTENT NONE CHECK")
-            if content_tag_new is not None:
-                print("CONTENT NONE CHECK 1")
-                content = content_tag_new.get_text(separator="\n", strip=True)
-                return content
-            content_tag_new = soup.find("span", class_="x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x xudqn12 x3x7a5m x6prxxf xvq8zen xo1l8bm xzsf02u x1yc453h")
-            if content_tag_new is not None:
-                print("CONTENT NONE CHECK 2")
-                content = content_tag_new.get_text(separator="\n", strip=True)
-                return content
-            content_tag_new = soup.find_all("div", class_="xdj266r x11i5rnm xat24cr x1mh8g0r x1vvkbs x126k92a")
-            if len(content_tag_new):
-                for each in content_tag_new:
+        if content_tag is not None:
+            print("CONTENT TYPE 1")
+            paragraph_content_tag = content_tag.find_all("div", attrs={"style": "text-align: start;"})
+            print(f"NUMBER PARAGRAHPH {len(paragraph_content_tag)}")
+            if len(paragraph_content_tag):
+                for each in paragraph_content_tag:
                     content += each.get_text(strip=False).strip() + "\n"
-                return content.strip()
-            return content
-        paragraph_content_tag = content_tag.find_all("div", attrs={"style": "text-align: start;"})
-        print(f"NUMBER PARAGRAHPH {len(paragraph_content_tag)}")
-        if len(paragraph_content_tag):
-            for each in paragraph_content_tag:
+            content = content_tag.get_text(strip=False, separator="\n")
+            return content.strip()
+        content_tag_new = soup.find_all("div", class_="x1iorvi4 x1pi30zi x1l90r2v x1swvt13")
+        if len(content_tag_new):
+            print("CONTENT TYPE 2")
+            for each in content_tag_new:
                 content += each.get_text(strip=False).strip() + "\n"
-        content = content_tag.get_text(strip=False, separator="\n")
-        return content.strip()
+            return content.strip()
+
+        content_tag_new = soup.find_all("span",
+                                    class_="x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x xudqn12 x3x7a5m x1f6kntn xvq8zen xo1l8bm xzsf02u x1yc453h")
+
+        if len(content_tag_new):
+            print("CONTENT TYPE 3")
+            for each in content_tag_new:
+                content += each.get_text(separator="\n", strip=True) + "\n"
+            return content.strip()
+        content_tag_new = soup.find("span", class_="x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x xudqn12 x3x7a5m x6prxxf xvq8zen xo1l8bm xzsf02u x1yc453h")
+        if content_tag_new is not None:
+            print("CONTENT TYPE 4")
+            content = content_tag_new.get_text(separator="\n", strip=True)
+            return content
+        return content
+
+    def get_number_comment(self):
+        soup = self.parse_html()
+        box_number_comment = soup.find("div", class_="x6s0dn4 x78zum5 x2lah0s x17rw0jw")
+        if box_number_comment is None:
+            return None
+        box_text = box_number_comment.find("span",
+                                      class_="x4k7w5x x1h91t0o x1h9r5lt x1jfb8zj xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j")
+        if box_text is None:
+            return None
+        text_number_comment = box_text.text
+        result_regex = re.search(r"\d+", text_number_comment)
+        if result_regex is None:
+            return None
+        start, end = result_regex.span()
+        return int(text_number_comment[start:end].strip())
 
     def get_data_for_box_comment(self, box_comment):
         user_main_comment = box_comment.find("span", class_="xt0psk2")
@@ -249,11 +271,9 @@ class PostGroupFacebook:
         return tags
 
     def get_data_for_each_comment(self, box_each_comment):
-        # print("____________MAIN COMMENT____________")
         main_comment = self.get_main_comment(box_each_comment)
         list_reply = self.get_main_reply(box_each_comment)
         main_comment["replies"] = list_reply
-        # data_comment = {"main_comment": main_comment, "replies": }
         return main_comment
 
     def get_main_comment(self, box_comment):
@@ -343,6 +363,7 @@ class PostGroupFacebook:
                 "name_page": self.name_page,
                 "image": self.link_image,
                 "content": self.content,
+                "number_comment": self.number_comment,
                 "comment": self.comment}
 
     def process_post(self):
@@ -354,8 +375,9 @@ class PostGroupFacebook:
         self.scroll(1000)
         print(self.url_page + self.preprocess_id_post(self.id_post))
         self.content = self.get_content()
+        self.number_comment = self.get_number_comment()
         print(self.content)
-        print(1)
+        print(self.number_comment)
         try:
             self.select_mode_view_all_comment()
             print(2)
@@ -369,5 +391,6 @@ class PostGroupFacebook:
             self.flag_time_out = True
         except Exception as e:
             print(e)
+        time.sleep(2)
 
 

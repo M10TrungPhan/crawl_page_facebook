@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     # token = TokenAndCookies()
     # token.get_token_and_cookies()
-    # post = PostGroupFacebook("https://www.facebook.com/groups/khoahocxgr/", "441249175921600_5132557856790685", token, "//172.29.13.24/tmtaishare/Data/Data_GROUP_FACEBOOK/", "Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức _XGR_")
+    # post = PostGroupFacebook("https://www.facebook.com/groups/khoahocxgr/", "441249175921600_5664607880252344", token, "//172.29.13.24/tmtaishare/Data/Data_GROUP_FACEBOOK/", "Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức _XGR_")
     # post.process_post()
 
 

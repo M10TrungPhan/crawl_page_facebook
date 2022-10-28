@@ -6336,3 +6336,151 @@ pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: shopee.
 2022-10-27 15:55:54,870 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
 2022-10-27 15:55:54,872 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
 2022-10-27 15:55:54,872 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 41
+2022-10-27 17:30:08,658 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-10-27 17:30:08,740 | TokenAndCookies | [INFO] | USING ACCOUNT: hieudan3123@outlook.com.vn
+2022-10-27 17:30:08,740 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-27 17:30:22,890 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-27 17:30:51,857 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-10-27 17:30:53,643 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-10-27 17:30:53,645 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-10-27 17:30:53,646 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 20
+2022-10-27 17:33:00,416 | TokenAndCookies | [INFO] | USING ACCOUNT: tiki_lazada@protonmail.com
+2022-10-27 17:33:00,416 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-10-27 17:33:14,407 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-10-27 17:35:32,402 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-10-27 17:35:32,475 | TokenAndCookies | [INFO] | USING ACCOUNT: hieudan3123@outlook.com.vn
+2022-10-27 17:35:32,475 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-27 17:35:47,749 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-27 17:36:19,579 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-10-27 17:36:21,349 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-10-27 17:36:21,349 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-10-27 17:36:21,351 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 20
+2022-10-27 17:55:52,417 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-10-27 17:55:52,507 | TokenAndCookies | [INFO] | USING ACCOUNT: hieudan3123@outlook.com.vn
+2022-10-27 17:55:52,507 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-27 17:56:06,512 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-27 17:56:34,534 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 1
+2022-10-27 17:56:35,921 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-10-27 17:56:35,922 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-10-27 17:56:35,922 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 24
+2022-10-27 18:07:26,382 | GroupFacebook | [INFO] | NUMBER OF POST IN Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR): 7162
+2022-10-27 18:26:35,890 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 19
+2022-10-27 18:26:35,920 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 7149
+2022-10-27 18:56:35,931 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 53
+2022-10-27 18:56:35,931 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 7115
+2022-10-27 19:26:35,897 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 86
+2022-10-27 19:26:35,897 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 7082
+2022-10-27 19:56:35,895 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 114
+2022-10-27 19:56:35,911 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 7054
+2022-10-27 20:09:46,937 | urllib3.connectionpool | [WARNING] | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2022-10-27 20:26:35,955 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 130
+2022-10-27 20:26:35,955 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 7038
+2022-10-27 20:56:35,937 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 141
+2022-10-27 20:56:35,937 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 7027
+2022-10-27 21:26:35,935 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 160
+2022-10-27 21:26:35,951 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 7008
+2022-10-27 21:56:35,980 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 184
+2022-10-27 21:56:35,980 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6984
+2022-10-27 22:26:35,962 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 212
+2022-10-27 22:26:35,962 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6956
+2022-10-27 22:56:35,963 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 241
+2022-10-27 22:56:35,963 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6927
+2022-10-27 23:26:35,945 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 271
+2022-10-27 23:26:35,945 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6897
+2022-10-27 23:56:35,949 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 298
+2022-10-27 23:56:35,965 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6870
+2022-10-28 00:02:45,124 | urllib3.connectionpool | [WARNING] | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2022-10-28 00:26:35,984 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 312
+2022-10-28 00:26:36,016 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6856
+2022-10-28 00:56:36,028 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 338
+2022-10-28 00:56:36,028 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6830
+2022-10-28 01:26:36,025 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 357
+2022-10-28 01:26:36,025 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6811
+2022-10-28 01:56:36,016 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 388
+2022-10-28 01:56:36,031 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6780
+2022-10-28 02:26:35,969 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 416
+2022-10-28 02:26:35,969 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6752
+2022-10-28 02:56:35,923 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 447
+2022-10-28 02:56:35,955 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6721
+2022-10-28 03:26:35,932 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 479
+2022-10-28 03:26:35,948 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6689
+2022-10-28 03:56:35,948 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 502
+2022-10-28 03:56:35,948 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6666
+2022-10-28 04:26:35,948 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 527
+2022-10-28 04:26:35,948 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6642
+2022-10-28 04:56:27,651 | urllib3.connectionpool | [WARNING] | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2022-10-28 04:56:35,920 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 547
+2022-10-28 04:56:35,920 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6621
+2022-10-28 05:26:35,903 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 583
+2022-10-28 05:26:35,903 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6585
+2022-10-28 05:56:35,885 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 599
+2022-10-28 05:56:35,885 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6569
+2022-10-28 06:26:35,888 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 633
+2022-10-28 06:26:35,888 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6535
+2022-10-28 06:56:35,899 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 656
+2022-10-28 06:56:35,915 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6512
+2022-10-28 07:26:35,920 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 692
+2022-10-28 07:26:35,920 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6476
+2022-10-28 07:43:00,000 | urllib3.connectionpool | [WARNING] | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2022-10-28 07:56:35,926 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 715
+2022-10-28 07:56:35,956 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6453
+2022-10-28 08:19:15,125 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-10-28 08:19:15,209 | TokenAndCookies | [INFO] | USING ACCOUNT: tiki_lazada@protonmail.com
+2022-10-28 08:19:15,209 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-10-28 08:19:28,794 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-10-28 08:19:57,598 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 719
+2022-10-28 08:19:58,581 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-10-28 08:19:58,583 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-10-28 08:19:58,583 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 1
+2022-10-28 08:30:44,341 | GroupFacebook | [INFO] | NUMBER OF POST IN Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR): 6732
+2022-10-28 08:49:58,572 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 22
+2022-10-28 08:49:58,603 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6718
+2022-10-28 09:19:58,606 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 37
+2022-10-28 09:19:58,606 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6704
+2022-10-28 09:47:44,292 | urllib3.connectionpool | [WARNING] | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2022-10-28 09:49:58,603 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 50
+2022-10-28 09:49:58,603 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6691
+2022-10-28 10:19:58,592 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 67
+2022-10-28 10:19:58,592 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6673
+2022-10-28 10:24:51,971 | urllib3.connectionpool | [WARNING] | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BD3B4407C0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/ef7683cb-09fc-4b66-a6f8-1fdafd1ef4e3/element
+2022-10-28 10:24:56,165 | urllib3.connectionpool | [WARNING] | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BD399640D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/ef7683cb-09fc-4b66-a6f8-1fdafd1ef4e3/element
+2022-10-28 10:25:00,348 | urllib3.connectionpool | [WARNING] | Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BD39964220>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/ef7683cb-09fc-4b66-a6f8-1fdafd1ef4e3/element
+2022-10-28 10:33:07,472 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-10-28 10:33:07,548 | TokenAndCookies | [INFO] | USING ACCOUNT: hieudan3123@outlook.com.vn
+2022-10-28 10:33:07,548 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-28 10:33:21,467 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-28 10:33:50,327 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 774
+2022-10-28 10:33:51,481 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-10-28 10:33:51,483 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-10-28 10:33:51,483 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 10
+2022-10-28 10:42:09,996 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-10-28 10:42:10,079 | TokenAndCookies | [INFO] | USING ACCOUNT: tiki_lazada@protonmail.com
+2022-10-28 10:42:10,080 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-10-28 10:42:23,669 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-10-28 10:42:52,276 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 774
+2022-10-28 10:42:53,341 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-10-28 10:42:53,342 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-10-28 10:42:53,342 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 14
+2022-10-28 10:49:42,482 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-10-28 10:49:42,590 | TokenAndCookies | [INFO] | USING ACCOUNT: hieudan3123@outlook.com.vn
+2022-10-28 10:49:42,590 | TokenAndCookies | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-28 10:49:56,522 | TokenAndCookies | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-10-28 10:50:24,518 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 780
+2022-10-28 10:50:25,796 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-10-28 10:50:25,798 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-10-28 10:50:25,798 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 9
+2022-10-28 11:02:41,127 | GroupFacebook | [INFO] | NUMBER OF POST IN Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR): 6490
+2022-10-28 11:13:05,501 | urllib3.connectionpool | [WARNING] | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2022-10-28 11:20:25,729 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 17
+2022-10-28 11:20:25,759 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6484
+2022-10-28 11:42:02,076 | urllib3.connectionpool | [WARNING] | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2022-10-28 11:50:25,752 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 27
+2022-10-28 11:50:25,783 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6474
+2022-10-28 12:20:25,767 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 61
+2022-10-28 12:20:25,782 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6440
+2022-10-28 12:50:25,749 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 88
+2022-10-28 12:50:25,826 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6413
+2022-10-28 13:20:25,819 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 103
+2022-10-28 13:20:25,850 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6398
+2022-10-28 13:50:25,824 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 126
+2022-10-28 13:50:25,840 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 6375
