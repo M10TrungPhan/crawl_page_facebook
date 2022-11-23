@@ -18,7 +18,7 @@ def setup_selenium_firefox():
     firefox_options.add_argument('--disable-extensions')
     firefox_options.add_argument('disable-infobars')
     firefox_options.add_argument("--incognito")
-    firefox_options.add_argument("--headless")
+    # firefox_options.add_argument("--headless")
     driver = webdriver.Firefox(service=ser, options=firefox_options)
     return driver
 
@@ -34,7 +34,6 @@ def setup_logging():
             logging.StreamHandler()
         ]
     )
-
 
 setup_logging()
 

@@ -9,19 +9,21 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 
 from object.token_and_cookies import TokenAndCookies
-from database.facebook_db import FacebookCollection
+from database.facebook_db import FacebookCollection, TimePostUpdateCollection
+from service.manage_account_facebook import ManageAccountFacebook
 from utils.utils import setup_selenium_firefox
 
 
 class PostGroupFacebook:
 
-    def __init__(self, url_page, id_post, token_and_cookies: TokenAndCookies, path_save_data, name_page):
+    def __init__(self, url_page, id_post,  path_save_data, name_page):
+        self.account = None
         self.logger = logging.getLogger(self.__class__.__name__)
         self.url_page = url_page
         self.name_page = name_page
         self.path_save_data = path_save_data
         self.id_post = id_post
-        self.token_and_cookies = token_and_cookies
+        # self.token_and_cookies = token_and_cookies
         self.driver = None
         self.fb_data = FacebookCollection()
         self.content = None
@@ -31,6 +33,9 @@ class PostGroupFacebook:
         self.flag_driver = False
         self.flag_time_out = False
         self.number_comment = None
+        self.manage_account = ManageAccountFacebook()
+        self.created_time = None
+        self.updated_time = None
 
     @staticmethod
     def preprocess_id_post(id_post):
@@ -42,17 +47,23 @@ class PostGroupFacebook:
         return id_post
 
     def get_data_image_for_post(self):
+        # url = f"https://graph.facebook.com/v15.0/{self.id_post}/attachments?" \
+        #       f"access_token={self.token_and_cookies.load_token_access()}"
         url = f"https://graph.facebook.com/v15.0/{self.id_post}/attachments?" \
-              f"access_token={self.token_and_cookies.load_token_access()}"
+              f"""access_token={self.account["token_access"]}"""
         requestJar = requests.cookies.RequestsCookieJar()
-        for each in self.token_and_cookies.load_cookies():
+        # for each in self.token_and_cookies.load_cookies():
+        for each in self.account["cookies"]:
             requestJar.set(each["name"], each["value"])
         response = requests.get(url, cookies=requestJar)
         jsonformat = json.loads(response.text)
         return jsonformat
 
     def get_image_for_post(self):
-        data_image = self.get_data_image_for_post()
+        try:
+            data_image = self.get_data_image_for_post()
+        except:
+            return self.link_image
         try:
             list_image = data_image["data"][0]["subattachments"]["data"][0]
             for each in list_image:
@@ -73,7 +84,8 @@ class PostGroupFacebook:
             try:
                 res = ""
                 self.driver.get("https://www.facebook.com/")
-                cookies = self.token_and_cookies.load_cookies()
+                # cookies = self.token_and_cookies.load_cookies()
+                cookies = self.account["cookies"]
                 for each in cookies:
                     self.driver.add_cookie(each)
                 self.driver.get(self.url_page + self.preprocess_id_post(self.id_post))
@@ -94,13 +106,16 @@ class PostGroupFacebook:
     def select_mode_view_all_comment(self):
         try:
             box_menu = self.driver.find_element(By.CLASS_NAME, value="x6s0dn4 x78zum5 xdj266r x11i5rnm xat24cr x1mh8g0r xe0p6wg".replace(" ", "."))
-        except:
+        except :
             return
         button_menu = box_menu.find_elements(By.CLASS_NAME, value="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1o1ewxj x3x9cwd x1e5q0jg x13rtm0m x1n2onr6 x87ps6o x1lku1pv x1a2a7pz".replace(" ", "."))
         for each in button_menu:
             if each.get_attribute("role") == "button":
                 each.click()
                 break
+        time.sleep(3)
+        if self.check_block_type_function_load_comment():
+            return "block"
         menu_item = self.driver.find_elements(By.CLASS_NAME, value="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou xe8uvvx x1hl2dhg xggy1nq x1o1ewxj x3x9cwd x1e5q0jg x13rtm0m x87ps6o x1lku1pv x1a2a7pz xjyslct x9f619 x1ypdohk x78zum5 x1q0g3np x2lah0s x1w4qvff x13mpval xdj266r xat24cr xz9dl7a x1sxyh0 xsag5q8 xurb0ha x1n2onr6 x16tdsg8 x1ja2u2z x6s0dn4".replace(" ","."))
         for each in menu_item:
             if re.search(r"Tất cả|All", each.text) is not None:
@@ -122,6 +137,7 @@ class PostGroupFacebook:
                     if re.search(r"Ẩn|Hide", each.text) is not None:
                         continue
                     each.click()
+                    time.sleep(1)
                 except:
                     continue
             time.sleep(5)
@@ -163,7 +179,6 @@ class PostGroupFacebook:
             time.sleep(2)
 
     def get_content(self):
-
         soup = self.parse_html()
         content = ""
         content_tag = soup.find("div", class_="x1swvt13 x1l90r2v x1pi30zi x1iorvi4")
@@ -198,6 +213,32 @@ class PostGroupFacebook:
             return content
         return content
 
+    def get_request_content(self):
+        url = f"https://graph.facebook.com/v15.0/{self.id_post}?" \
+              f"""access_token={self.account["token_access"]}"""
+        requestJar = requests.cookies.RequestsCookieJar()
+        # for each in self.token_and_cookies.load_cookies():
+        for each in self.account["cookies"]:
+            requestJar.set(each["name"], each["value"])
+        response = None
+        for _ in range(10):
+            try:
+                response = requests.get(url, cookies=requestJar)
+                break
+            except:
+                pass
+        if response is None:
+            return False
+        jsonformat = json.loads(response.text)
+        return jsonformat
+
+    def get_content_2(self):
+        data = self.get_request_content()
+        if not data:
+            return
+        self.content = data["message"]
+        self.created_time = data["created_time"]
+
     def get_number_comment(self):
         soup = self.parse_html()
         box_number_comment = soup.find("div", class_="x6s0dn4 x78zum5 x2lah0s x17rw0jw")
@@ -206,22 +247,35 @@ class PostGroupFacebook:
         box_text = box_number_comment.find("span",
                                       class_="x4k7w5x x1h91t0o x1h9r5lt x1jfb8zj xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j")
         if box_text is None:
+            box_text = box_number_comment.find("span",
+                                               class_="x4k7w5x x1h91t0o x1h9r5lt xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j x1jfb8zj")
+        if box_text is None:
             return None
         text_number_comment = box_text.text
-        result_regex = re.search(r"\d+", text_number_comment)
+        result_regex = re.search(r"\d+,?\d?K|\d+", text_number_comment)
         if result_regex is None:
             return None
         start, end = result_regex.span()
-        return int(text_number_comment[start:end].strip())
+        return text_number_comment[start:end].strip()
 
     def get_data_for_box_comment(self, box_comment):
         user_main_comment = box_comment.find("span", class_="xt0psk2")
-        text_main_comment_box = box_comment.find("div", class_="xdj266r x11i5rnm xat24cr x1mh8g0r x1vvkbs")
-        text_comment = self.get_text_for_box_comment(text_main_comment_box)
-        tags = self.get_tags_for_box_comment(text_main_comment_box)
+        text_comment = self.get_text_for_box_comment(box_comment)
+        tags = self.get_tags_for_box_comment(box_comment)
         attachment = self.get_attachment_for_box_comment(box_comment)
-        data = {"user": user_main_comment.text, "attachment": attachment, "text": text_comment, "tags": tags}
+        link_to_reply = self.get_link_to_reply(box_comment)
+        data = {"user": user_main_comment.text, "attachment": attachment, "text": text_comment,
+                "tags": tags, "link_to_reply": link_to_reply}
         return data
+
+    @staticmethod
+    def get_link_to_reply(box_comment):
+        box_link = box_comment.find("a", class_="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xi81zsa x1fcty0u")
+        if box_link is None:
+            return None
+        link_to_reply = box_link.get("href")
+        # print(link_to_reply)
+        return link_to_reply
 
     @staticmethod
     def get_attachment_for_box_comment(box_comment):
@@ -251,10 +305,13 @@ class PostGroupFacebook:
 
     @staticmethod
     def get_text_for_box_comment(box_text_comment):
+        text_main_comment_box = box_text_comment.find("div", class_="xdj266r x11i5rnm xat24cr x1mh8g0r x1vvkbs")
         text_comment = ""
-        if box_text_comment is None:
+        if text_main_comment_box is None:
+            text_main_comment_box = box_text_comment.find("div", class_="x11i5rnm xat24cr x1mh8g0r x1vvkbs xdj266r")
+        if text_main_comment_box is None:
             return None
-        list_paragraph_element = box_text_comment.findAll("div", attrs={"style": "text-align: start;"})
+        list_paragraph_element = text_main_comment_box.findAll("div", attrs={"style": "text-align: start;"})
         for each in list_paragraph_element:
             text_comment += each.get_text(strip=False).strip() + "\n"
         return text_comment.strip()
@@ -262,7 +319,10 @@ class PostGroupFacebook:
     @staticmethod
     def get_tags_for_box_comment(box_text_comment):
         tags = []
-        if box_text_comment is None:
+        text_main_comment_box = box_text_comment.find("div", class_="xdj266r x11i5rnm xat24cr x1mh8g0r x1vvkbs")
+        if text_main_comment_box is None:
+            text_main_comment_box = box_text_comment.find("div", class_="x11i5rnm xat24cr x1mh8g0r x1vvkbs xdj266r")
+        if text_main_comment_box is None:
             return tags
         tags_element = box_text_comment.findAll("a",
                                                 class_="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xzsf02u x1s688f")
@@ -285,24 +345,28 @@ class PostGroupFacebook:
     def get_main_reply(self, box_main_reply):
         list_reply = []
         reply_tag = box_main_reply.find("div", class_="xdj266r xexx8yu x4uap5 x18d9i69 xkhd6sd")
+        if reply_tag is None:
+            reply_tag = box_main_reply.find("div", class_="xdj266r xexx8yu x4uap5 x18d9i69 x46jau6")
+        if reply_tag is None:
+            return list_reply
         reply_tag = reply_tag.find("ul")
         if reply_tag is None:
             return list_reply
-        list_main_reply_tag = reply_tag.findAll("li")
+        list_main_reply_tag = reply_tag.findChildren("li", recursive=False)
         for each_main_reply in list_main_reply_tag:
             box_main_reply = each_main_reply.find("div", class_="x1n2onr6 x46jau6")
+            if box_main_reply is None:
+                box_main_reply = each_main_reply.find("div", class_="x1n2onr6 x1iorvi4 x4uap5 x18d9i69 xurb0ha x78zum5 x1q0g3np x1a2a7pz")
             if box_main_reply is None:
                 continue
             tag_main_reply = box_main_reply.find("div", class_="x1r8uery x1iyjqo2 x6ikm8r x10wlt62 x1pi30zi")
             main_reply = self.get_data_for_box_comment(tag_main_reply)
             box_mini_reply = box_main_reply.find_next_sibling("div")
             if box_mini_reply is None:
-                # data_each_main_reply = {"main_reply": main_reply, "mini_replies": []}
                 main_reply["replies"] = []
                 list_reply.append(main_reply)
                 continue
             mini_reply = self.get_mini_reply(box_mini_reply)
-            # data_each_main_reply = {"main_reply": main_reply, "mini_replies": mini_reply}
             main_reply["replies"] = mini_reply
             list_reply.append(main_reply)
         return list_reply
@@ -338,14 +402,28 @@ class PostGroupFacebook:
             list_total_comment.append(data_each_comment)
         return list_total_comment
 
+    def check_block_type_function_load_comment(self):
+        soup = self.parse_html()
+        # print(soup.text)
+        if soup.find("div", class_="x6s0dn4 x78zum5 x2lah0s x1qughib x879a55 x1n2onr6") is not None:
+            self.manage_account.update_status(self.account["user"], "temporary inactive")
+            return True
+        return False
+
+    def check_block_type_account(self):
+        soup = self.parse_html()
+        if soup.find("div",
+                     class_="x1n2onr6 x1ja2u2z x9f619 x78zum5 xdt5ytf x2lah0s x193iq5w xyamay9 x1l90r2v") is not None:
+            self.manage_account.update_status(self.account["user"], "account block")
+            return True
+        return False
+
     def time_out_for_driver(self):
-        for _ in range(600):
+        for _ in range(1200):
             if self.flag_time_out:
-                print("END TIMER 1")
                 return
             time.sleep(1)
         self.flag_driver = True
-        print("END TIMER 2")
 
     def close_driver(self):
         thread_time_out = Thread(target=self.time_out_for_driver)
@@ -361,36 +439,70 @@ class PostGroupFacebook:
         return {"_id": self.id_post,
                 "url_post": self.url_page + self.preprocess_id_post(self.id_post),
                 "name_page": self.name_page,
+                "created_time": self.created_time,
+                "updated_time": self.updated_time,
                 "image": self.link_image,
                 "content": self.content,
                 "number_comment": self.number_comment,
                 "comment": self.comment}
 
+    @property
+    def dict_time_update_post(self):
+        return {"_id": self.id_post,
+                "updated_time": self.updated_time}
+
+    def save_updated_time_post(self):
+        print("FUNCTION UPDATE POST")
+        time_post_update_db = TimePostUpdateCollection()
+        time_post_new = self.dict_time_update_post
+        time_post_update_db.update_time_for_post(time_post_new)
+        print("UPDATE SUCCESSFUL ")
+
     def process_post(self):
-        self.get_image_for_post()
-        if self.access_website() is None:
-            return
         thread_check_not_working = Thread(target=self.close_driver)
         thread_check_not_working.start()
-        self.scroll(1000)
-        print(self.url_page + self.preprocess_id_post(self.id_post))
-        self.content = self.get_content()
-        self.number_comment = self.get_number_comment()
-        print(self.content)
-        print(self.number_comment)
-        try:
-            self.select_mode_view_all_comment()
-            print(2)
-            self.show_all_comments()
-            print(3)
-            self.show_more_text()
-            self.comment = self.get_all_comment_in_post()
-            json.dump(self.dict_post, open(self.path_save_data + self.id_post+".json", "w", encoding="utf-8"),
-                      ensure_ascii=False, indent=4)
+        # print(self.content)
+        # print(self.update_time)
+        self.get_content_2()
+        # print(self.content)
+        # print(self.created_time)
+        self.get_image_for_post()
+        if self.access_website() is None:
             self.flag_driver = True
             self.flag_time_out = True
+            # self.manage_account.update_status(self.account["user"], "active")
+            return False
+        if self.check_block_type_account():
+            self.flag_driver = True
+            self.flag_time_out = True
+            # self.manage_account.update_status(self.account["user"], "active")
+            return False
+        self.scroll(1000)
+        print(self.url_page + self.preprocess_id_post(self.id_post))
+        if self.content is None:
+            self.content = self.get_content()
+        try:
+            self.number_comment = self.get_number_comment()
+            if self.select_mode_view_all_comment() == "block":
+                self.flag_driver = True
+                self.flag_time_out = True
+                return False
+            self.show_all_comments()
+            self.show_more_text()
         except Exception as e:
-            print(e)
+            # self.manage_account.update_status(self.account["user"], "active")
+            print(f"Error internal post {e}")
+            self.flag_driver = True
+            self.flag_time_out = True
+            return False
+        # self.manage_account.update_status(self.account["user"], "active")
+        self.comment = self.get_all_comment_in_post()
+        json.dump(self.dict_post, open(self.path_save_data + self.id_post + ".json", "w", encoding="utf-8"),
+                  ensure_ascii=False, indent=4)
+        self.save_updated_time_post()
+        self.flag_driver = True
+        self.flag_time_out = True
         time.sleep(2)
+        return True
 
 

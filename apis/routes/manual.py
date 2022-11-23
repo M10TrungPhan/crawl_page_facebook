@@ -18,7 +18,7 @@ class ManualRoute(BaseRoute):
         return self.manager_account.remove_account_facebook(account)
 
     def update_information_account(self, account: AccountFacebookRequest):
-        return self.manager_account.update_information_account(account)
+        return self.manager_account.update_information_account_api(account)
 
     def get_information_account(self, account: AccountFacebookRequest):
         return self.manager_account.check_information_account(account)

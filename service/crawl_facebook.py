@@ -3,6 +3,7 @@ import logging
 from threading import Thread
 import re
 
+from service.manage_account_facebook import ManageAccountFacebook
 from object.page_facebook import PageFacebook
 from object.group_facebook import GroupFacebook
 from object.token_and_cookies import TokenAndCookies
@@ -13,6 +14,7 @@ class CrawlFacebook(Thread):
 
     def __init__(self, url):
         super(CrawlFacebook, self).__init__()
+        self.manager_account_fb = ManageAccountFacebook()
         self.config = Config()
         self.logger = logging.getLogger(self.__class__.__name__)
         self.token_and_cookies = TokenAndCookies()
@@ -34,8 +36,9 @@ class CrawlFacebook(Thread):
     def run(self):
         self.logger.info(f"START CRAWL {self.url}")
         self.get_type()
+        self.manager_account_fb.start()
         if self.type == "group":
-            group = GroupFacebook(self.url, self.token_and_cookies, self.path_save_data)
+            group = GroupFacebook(self.url, self.path_save_data)
             group.process_group()
         else:
             page = PageFacebook(self.url, self.token_and_cookies, self.path_save_data)

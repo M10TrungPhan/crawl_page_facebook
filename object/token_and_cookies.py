@@ -23,11 +23,14 @@ class TokenAndCookies:
         self.flag_update_token = False
 
     def get_random_account_facebook(self):
-        account = self.account_facebook_db.select_random_account()
-        if account is None:
-            return
-        self.user = account["user"]
-        self.password = account["password"]
+        # account = self.account_facebook_db.select_random_account()
+        # if account is None:
+        #     return
+        # self.user = account["user"]
+        self.user = "tiki_lazada@protonmail.com"
+        print(self.user)
+        # self.password = account["password"]
+        self.password = "A@123B@123"
         self.logger.info(f"USING ACCOUNT: {self.user}")
 
     def login_facebook_and_get_cookies(self):
