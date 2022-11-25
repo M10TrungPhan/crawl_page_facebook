@@ -153,7 +153,7 @@ class GroupFacebook:
                 updated_time = each["updated_time"]
                 post_new = {"_id": id_post, "updated_time": updated_time}
                 if self.time_post_update_collection.check_update_time(post_new):
-                    print("POST DOES NOT CHANGE")
+                    # print("POST DOES NOT CHANGE")
                     continue
                 postfb = PostGroupFacebook(self.url_group, id_post,
                                            self.path_save_data + self.name_group + "/", self.name_group)
@@ -195,7 +195,7 @@ class GroupFacebook:
                     update_time = each["updated_time"]
                     post_new = {"_id": id_post, "updated_time": update_time}
                     if self.time_post_update_collection.check_update_time(post_new):
-                        print("POST DOES NOT CHANGE")
+                        # print("POST DOES NOT CHANGE")
                         continue
                     postfb = PostGroupFacebook(self.url_group, id_post,
                                                self.path_save_data + self.name_group + "/", self.name_group)

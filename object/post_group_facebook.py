@@ -96,6 +96,7 @@ class PostGroupFacebook:
                 continue
         if res is None:
             self.driver.close()
+            # self.driver.quit()
             return None
         time.sleep(3)
         return self.parse_html()
@@ -431,6 +432,7 @@ class PostGroupFacebook:
         while True:
             if self.flag_driver:
                 self.driver.close()
+                # self.driver.quit()
                 print(f"CLOSE SELENIUM FOR {self.url_page + self.preprocess_id_post(self.id_post)}")
                 break
 
@@ -502,7 +504,6 @@ class PostGroupFacebook:
         self.save_updated_time_post()
         self.flag_driver = True
         self.flag_time_out = True
-        time.sleep(2)
         return True
 
 

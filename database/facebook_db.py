@@ -147,7 +147,6 @@ class TimePostUpdateCollection(metaclass=Singleton):
             return False
         if post_new["updated_time"] == post_old["updated_time"]:
             return True
-        print("POST CHANGE")
         return False
 
 
