@@ -69,9 +69,16 @@ class ManageAccountFacebook(Thread, metaclass=Singleton):
         password_box.send_keys(password)
         password_box.send_keys(Keys.ENTER)
         time.sleep(5)
+        driver.get("https://www.facebook.com/me?")
+        time.sleep(3)
+        try:
+            user_name = driver.find_element(By.CLASS_NAME, value="x1heor9g x1qlqyl8 x1pd3egz x1a2a7pz".
+                                            replace(" ", ".")).text
+        except:
+            user_name = None
         cookies = driver.get_cookies()
         driver.close()
-        return cookies
+        return cookies, user_name
 
     def get_token_access(self, user, cookies):
         self.logger.info(f"GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT {user}")
@@ -109,7 +116,7 @@ class ManageAccountFacebook(Thread, metaclass=Singleton):
         self.account_fb_collection.update_information_account_api(account)
 
     def update_information_for_account(self, user, password):
-        cookies = self.login_facebook_and_get_cookies(user, password)
+        cookies, account_name = self.login_facebook_and_get_cookies(user, password)
         token_access = self.get_token_access(user, cookies)
         account = AccountFacebookRequest(user)
         if token_access is None:
@@ -122,14 +129,17 @@ class ManageAccountFacebook(Thread, metaclass=Singleton):
         #     account.status = "active"
         account.token_access = token_access
         account.cookies = cookies
+        account.account_name = account_name
         self.account_fb_collection.update_information_account_api(account)
 
     def update_information_for_all_account(self):
         self.logger.info("UPDATE INFORMATION FOR ALL ACCOUNT")
         list_account = self.account_fb_collection.get_information_all_account()
-        with concurrent.futures.ThreadPoolExecutor(max_workers=len(list_account)) as executor:
-            [executor.submit(self.update_information_for_account, account["user"],
-                             account["password"]) for account in list_account]
+        for account in list_account:
+            self.update_information_for_account(account["user"], account["password"])
+        # with concurrent.futures.ThreadPoolExecutor(max_workers=len(list_account)) as executor:
+        #     [executor.submit(self.update_information_for_account, account["user"],
+        #                      account["password"]) for account in list_account]
 
     def check_account_block(self):
         return False
@@ -176,7 +186,10 @@ class ManageAccountFacebook(Thread, metaclass=Singleton):
 
     def run(self):
         print("Start thread manage account")
-        self.update_information_for_all_account()
+        while True:
+            print("UPDATE ALL ACCOUNT")
+            self.update_information_for_all_account()
+            time.sleep(30*60)
 
     def get_all_account_active(self):
         return self.account_fb_collection.get_all_account_active()

@@ -64,6 +64,7 @@ class AccountFacebookCollection(metaclass=Singleton):
         old_status = account_in_db["status"]
         old_token_access = account_in_db["token_access"]
         old_cookies = account_in_db["cookies"]
+        old_account_name = account_in_db["account_name"]
         if account.password is None:
             update_password = old_password
         else:
@@ -82,9 +83,15 @@ class AccountFacebookCollection(metaclass=Singleton):
         else:
             update_token_access = account.token_access
 
+        if account.account_name is None:
+            update_account_name = old_account_name
+        else:
+            update_account_name = account.account_name
+
         query_condition = {"_id": id_user}
         new_values = {"$set": {"password": update_password, "status": update_status,
-                               "token_access": update_token_access, "cookies": update_cookies}}
+                               "token_access": update_token_access, "cookies": update_cookies,
+                               "account_name": update_account_name}}
         self.data_col.update_one(query_condition, new_values)
         return f"UPDATE SUCCESSFUL FOR USER {account.username}"
 

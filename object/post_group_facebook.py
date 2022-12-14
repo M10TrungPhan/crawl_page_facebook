@@ -151,7 +151,7 @@ class PostGroupFacebook:
                 except:
                     time.sleep(1)
                     continue
-        print("DONE LOAD ALL COMMENT")
+        # print("DONE LOAD ALL COMMENT")
 
     def scroll(self, pixel):
         javascript = f"window.scrollBy(0,{pixel});"
@@ -433,7 +433,7 @@ class PostGroupFacebook:
             if self.flag_driver:
                 self.driver.close()
                 # self.driver.quit()
-                print(f"CLOSE SELENIUM FOR {self.url_page + self.preprocess_id_post(self.id_post)}")
+                # print(f"CLOSE SELENIUM FOR {self.url_page + self.preprocess_id_post(self.id_post)}")
                 break
 
     @property
@@ -454,30 +454,24 @@ class PostGroupFacebook:
                 "updated_time": self.updated_time}
 
     def save_updated_time_post(self):
-        print("FUNCTION UPDATE POST")
+        # print("FUNCTION UPDATE POST")
         time_post_update_db = TimePostUpdateCollection()
         time_post_new = self.dict_time_update_post
         time_post_update_db.update_time_for_post(time_post_new)
-        print("UPDATE SUCCESSFUL ")
+        # print("UPDATE SUCCESSFUL ")
 
     def process_post(self):
         thread_check_not_working = Thread(target=self.close_driver)
         thread_check_not_working.start()
-        # print(self.content)
-        # print(self.update_time)
         self.get_content_2()
-        # print(self.content)
-        # print(self.created_time)
         self.get_image_for_post()
         if self.access_website() is None:
             self.flag_driver = True
             self.flag_time_out = True
-            # self.manage_account.update_status(self.account["user"], "active")
             return False
         if self.check_block_type_account():
             self.flag_driver = True
             self.flag_time_out = True
-            # self.manage_account.update_status(self.account["user"], "active")
             return False
         self.scroll(1000)
         print(self.url_page + self.preprocess_id_post(self.id_post))

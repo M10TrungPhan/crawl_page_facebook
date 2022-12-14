@@ -9,16 +9,20 @@ class AccountFacebookRequest(BaseModel):
     status: Optional[AnyStr]
     token_access: Optional[AnyStr]
     cookies: Optional[List[Dict]]
+    account_name: Optional[AnyStr]
 
     def __init__(self, username: AnyStr, password: AnyStr = None, status: AnyStr = None,
-                 token_access: Optional[AnyStr] = None, cookies: Optional[List[Dict]] = None):
+                 token_access: Optional[AnyStr] = None, cookies: Optional[List[Dict]] = None,
+                 account_name: Optional[AnyStr] = None):
         super(AccountFacebookRequest, self).__init__(username=username, password=password, status=status,
-                                                     token_access=token_access, cookies=cookies)
+                                                     token_access=token_access, cookies=cookies,
+                                                     account_name=account_name)
         self.username = username
         self.password = password
         self.status = status
         self.token_access = token_access
         self.cookies = cookies
+        self.account_name = account_name
 
 
 class PageRequest(BaseModel):

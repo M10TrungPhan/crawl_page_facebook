@@ -255,7 +255,6 @@ class GroupFacebook:
             self.logger.info(f"NUMBER POST HAVE CRAWLED: {self.number_post}")
             self.logger.info(f"NUMBER POST IN QUEUES: {self.post_queue.qsize()}")
             time.sleep(60 * 30)
-            # self.manage_account.update_information_for_all_account()
             # self.token_and_cookies.get_token_and_cookies()
 
     def thread_manage_crawler(self):
@@ -280,13 +279,16 @@ class GroupFacebook:
         thread_status.start()
         time.sleep(60)
         while (self.post_queue.qsize() > 0) or (self.next_page is not None):
-            list_account_facebook = self.get_list_account_facebook_active(self.config.number_of_crawler)
-            print(f" LENGTH LIST ACCOUNT RANDOM: {len(list_account_facebook)}")
-            if not len(list_account_facebook):
-                continue
-            with concurrent.futures.ThreadPoolExecutor(max_workers=self.config.number_of_crawler) as executor:
-                [executor.submit(self.crawl_post, account) for account in list_account_facebook]
-            time.sleep(random.randint(1, 10))
+            try:
+                list_account_facebook = self.get_list_account_facebook_active(self.config.number_of_crawler)
+                print(f" LENGTH LIST ACCOUNT RANDOM: {len(list_account_facebook)}")
+                if not len(list_account_facebook):
+                    continue
+                with concurrent.futures.ThreadPoolExecutor(max_workers=self.config.number_of_crawler) as executor:
+                    [executor.submit(self.crawl_post, account) for account in list_account_facebook]
+                time.sleep(random.randint(1, 10))
+            except:
+                pass
         thread_request_next_page.join()
         # thread_manage_crawler.join()
         self.logger.info(f"FINISHED CRAWL PAGE {self.name_group}. NUMBER POST HAVE CRAWLED: {self.number_post}")

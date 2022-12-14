@@ -28167,3 +28167,422 @@ pymongo.errors.ServerSelectionTimeoutError: 172.29.13.23:20253: [WinError 10061]
 2022-11-25 14:43:46,076 | urllib3.connectionpool | [WARNING] | Connection pool is full, discarding connection: localhost. Connection pool size: 1
 2022-11-25 14:57:48,868 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 48
 2022-11-25 14:57:48,944 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 32
+2022-11-25 16:25:49,368 | uvicorn.error | [INFO] | Started server process [27360]
+2022-11-25 16:25:49,368 | uvicorn.error | [INFO] | Waiting for application startup.
+2022-11-25 16:25:49,369 | uvicorn.error | [INFO] | Application startup complete.
+2022-11-25 16:25:49,370 | uvicorn.error | [INFO] | Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+2022-11-25 16:26:36,968 | uvicorn.error | [ERROR] | Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 366, in run_asgi
+    result = await app(self.scope, self.receive, self.send)
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 75, in __call__
+    return await self.app(scope, receive, send)
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\fastapi\applications.py", line 269, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\starlette\applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\starlette\exceptions.py", line 93, in __call__
+    raise exc
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 21, in __call__
+    raise e
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\starlette\routing.py", line 670, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\starlette\routing.py", line 266, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\starlette\routing.py", line 65, in app
+    response = await func(request)
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\fastapi\routing.py", line 227, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\fastapi\routing.py", line 160, in run_endpoint_function
+    return await dependant.call(**values)
+  File "D:\trungphan\crawl_facebook\crawl_page_facebook\apis\routes\manual.py", line 54, in get_information_all_account
+    output = await self.wait(self.get_information_all_account)
+  File "D:\trungphan\crawl_facebook\crawl_page_facebook\apis\routes\base_route.py", line 29, in wait
+    output = await self.worker_manager.wait(job, *args)
+  File "D:\trungphan\crawl_facebook\crawl_page_facebook\apis\routes\base_route.py", line 15, in wait
+    output = await loop.run_in_executor(self.executor, job, *args)
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\concurrent\futures\thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\trungphan\crawl_facebook\crawl_page_facebook\apis\routes\manual.py", line 27, in get_information_all_account
+    return self.manager_account.get_information_all_account()
+  File "D:\trungphan\crawl_facebook\crawl_page_facebook\service\manage_account_facebook.py", line 59, in get_information_all_account
+    return self.account_fb_collection.get_information_all_account()
+  File "D:\trungphan\crawl_facebook\crawl_page_facebook\database\facebook_db.py", line 93, in get_information_all_account
+    for x in self.data_col.find():
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\pymongo\cursor.py", line 1248, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\pymongo\cursor.py", line 1139, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\pymongo\mongo_client.py", line 1712, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\pymongo\mongo_client.py", line 1657, in __start_session
+    self._topology._check_implicit_session_support()
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\pymongo\topology.py", line 538, in _check_implicit_session_support
+    self._check_session_support()
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\pymongo\topology.py", line 554, in _check_session_support
+    self._select_servers_loop(
+  File "C:\Users\trungpn\Anaconda3\envs\crawl_data_shopee\lib\site-packages\pymongo\topology.py", line 238, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: 172.29.13.23:20253: timed out, Timeout: 30s, Topology Description: <TopologyDescription id: 63808a1dc3e8065b17cea320, topology_type: Unknown, servers: [<ServerDescription ('172.29.13.23', 20253) server_type: Unknown, rtt: None, error=NetworkTimeout('172.29.13.23:20253: timed out')>]>
+2022-11-25 16:26:43,937 | uvicorn.error | [INFO] | Shutting down
+2022-11-25 16:26:44,043 | uvicorn.error | [INFO] | Waiting for application shutdown.
+2022-11-25 16:26:44,043 | uvicorn.error | [INFO] | Application shutdown complete.
+2022-11-25 16:26:44,043 | uvicorn.error | [INFO] | Finished server process [27360]
+2022-12-05 08:47:09,572 | uvicorn.error | [INFO] | Started server process [27124]
+2022-12-05 08:47:09,572 | uvicorn.error | [INFO] | Waiting for application startup.
+2022-12-05 08:47:09,573 | uvicorn.error | [INFO] | Application startup complete.
+2022-12-05 08:47:09,573 | uvicorn.error | [INFO] | Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+2022-12-05 09:48:29,634 | uvicorn.error | [INFO] | Shutting down
+2022-12-05 09:48:29,746 | uvicorn.error | [INFO] | Waiting for application shutdown.
+2022-12-05 09:48:29,746 | uvicorn.error | [INFO] | Application shutdown complete.
+2022-12-05 09:48:29,746 | uvicorn.error | [INFO] | Finished server process [27124]
+2022-12-05 09:48:43,736 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-12-05 09:48:48,737 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/phanbien/
+2022-12-05 09:48:56,648 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-05 09:48:57,699 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-12-05 09:48:57,700 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-05 09:48:57,704 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-05 09:48:57,704 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-05 09:48:57,705 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-05 09:48:57,705 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-05 09:48:57,705 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-05 09:48:57,706 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-05 09:48:57,706 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT ngocanhallin@gmail.com
+2022-12-05 09:48:57,706 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-05 09:48:57,707 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-05 09:49:00,424 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-05 09:49:02,285 | GroupFacebook | [INFO] | CRAWL PAGE: Phản Biện Không Thuyết Phục_ Xóa Group! (XGR). ID PAGE: 2575884495812741
+2022-12-05 09:49:02,357 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-05 09:49:02,407 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-05 09:49:02,415 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-05 09:49:02,420 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-05 09:49:02,422 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-05 09:49:02,426 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-05 09:49:02,435 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-05 09:49:02,436 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT ngocanhallin@gmail.com
+2022-12-05 09:49:02,488 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-05 09:49:02,531 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-05 09:49:18,596 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-05 09:49:18,724 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-05 09:49:18,805 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-05 09:49:18,952 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT ngocanhallin@gmail.com
+2022-12-05 09:49:19,272 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-05 09:49:19,593 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-05 09:49:19,979 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-05 09:49:20,098 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-05 09:49:20,969 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-05 09:49:22,519 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-05 09:49:23,184 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-05 09:49:23,199 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-05 09:49:23,383 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-05 09:49:26,120 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT ngocanhallin@gmail.com
+2022-12-05 09:49:26,859 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-05 09:49:26,890 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-05 09:49:27,076 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-05 09:49:27,088 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-05 09:49:37,816 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-05 09:49:37,816 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 47
+2022-12-05 09:49:44,251 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-05 09:49:44,251 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 91
+2022-12-05 09:50:50,106 | uvicorn.error | [INFO] | Started server process [30924]
+2022-12-05 09:50:50,106 | uvicorn.error | [INFO] | Waiting for application startup.
+2022-12-05 09:50:50,106 | uvicorn.error | [INFO] | Application startup complete.
+2022-12-05 09:50:50,106 | uvicorn.error | [INFO] | Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+2022-12-05 09:58:12,166 | uvicorn.error | [INFO] | Shutting down
+2022-12-05 09:58:12,259 | uvicorn.error | [INFO] | Waiting for application shutdown.
+2022-12-05 09:58:12,259 | uvicorn.error | [INFO] | Application shutdown complete.
+2022-12-05 09:58:12,259 | uvicorn.error | [INFO] | Finished server process [30924]
+2022-12-05 09:58:13,238 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-05 09:58:13,239 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-12-05 09:58:13,254 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-05 09:58:13,254 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-05 09:58:13,255 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-05 09:58:13,255 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-05 09:58:13,255 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-05 09:58:13,256 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-05 09:58:13,256 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-05 09:58:13,256 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-05 09:58:18,292 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/phanbien/
+2022-12-05 09:58:23,516 | uvicorn.error | [INFO] | Started server process [52668]
+2022-12-05 09:58:23,517 | uvicorn.error | [INFO] | Waiting for application startup.
+2022-12-05 09:58:23,517 | uvicorn.error | [INFO] | Application startup complete.
+2022-12-05 09:58:23,519 | uvicorn.error | [INFO] | Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+2022-12-05 09:58:27,985 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-05 09:58:29,161 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-12-05 09:58:29,169 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-05 09:58:29,170 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 1
+2022-12-05 09:58:33,188 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-05 09:58:33,558 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-05 09:58:33,694 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-05 09:58:34,000 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-05 09:58:34,050 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-05 09:58:35,176 | GroupFacebook | [INFO] | CRAWL PAGE: Phản Biện Không Thuyết Phục_ Xóa Group! (XGR). ID PAGE: 2575884495812741
+2022-12-05 09:58:35,177 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-05 09:58:35,178 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 37
+2022-12-05 09:58:35,322 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-05 09:58:35,440 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-05 09:58:35,503 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-05 09:58:35,612 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-05 09:58:40,451 | uvicorn.error | [INFO] | Shutting down
+2022-12-05 09:58:40,558 | uvicorn.error | [INFO] | Waiting for application shutdown.
+2022-12-05 09:58:40,558 | uvicorn.error | [INFO] | Application shutdown complete.
+2022-12-05 09:58:40,558 | uvicorn.error | [INFO] | Finished server process [52668]
+2022-12-05 09:58:48,539 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-05 09:58:48,539 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-12-05 09:58:48,554 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-05 09:58:48,554 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-05 09:58:48,555 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-05 09:58:48,555 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-05 09:58:48,555 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-05 09:58:48,556 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-05 09:58:48,557 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-05 09:58:48,557 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-05 09:58:53,564 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/phanbien/
+2022-12-05 09:59:00,291 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-05 09:59:00,292 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-12-05 09:59:00,305 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-05 09:59:00,306 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-05 09:59:00,306 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-05 09:59:00,306 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-05 09:59:00,306 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-05 09:59:00,307 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-05 09:59:00,307 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-05 09:59:00,307 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-05 09:59:05,309 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/phanbien/
+2022-12-05 09:59:10,517 | uvicorn.error | [INFO] | Started server process [28976]
+2022-12-05 09:59:10,517 | uvicorn.error | [INFO] | Waiting for application startup.
+2022-12-05 09:59:10,518 | uvicorn.error | [INFO] | Application startup complete.
+2022-12-05 09:59:10,518 | uvicorn.error | [INFO] | Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+2022-12-05 09:59:13,220 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-05 09:59:14,119 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-12-05 09:59:14,120 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-05 09:59:14,122 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 1
+2022-12-05 09:59:17,239 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-05 09:59:17,810 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-05 09:59:18,245 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-05 09:59:18,290 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-05 09:59:18,547 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-05 09:59:18,623 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-05 09:59:18,648 | GroupFacebook | [INFO] | CRAWL PAGE: Phản Biện Không Thuyết Phục_ Xóa Group! (XGR). ID PAGE: 2575884495812741
+2022-12-05 09:59:18,649 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-05 09:59:18,649 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 36
+2022-12-05 09:59:18,700 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-05 09:59:18,775 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-05 09:59:18,790 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-05 10:00:37,502 | uvicorn.error | [INFO] | Shutting down
+2022-12-05 10:11:27,958 | uvicorn.error | [INFO] | Started server process [41556]
+2022-12-05 10:11:27,959 | uvicorn.error | [INFO] | Waiting for application startup.
+2022-12-05 10:11:27,959 | uvicorn.error | [INFO] | Application startup complete.
+2022-12-05 10:11:27,959 | uvicorn.error | [INFO] | Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+2022-12-05 10:46:33,080 | uvicorn.error | [INFO] | Shutting down
+2022-12-05 10:46:33,188 | uvicorn.error | [INFO] | Waiting for application shutdown.
+2022-12-05 10:46:33,188 | uvicorn.error | [INFO] | Application shutdown complete.
+2022-12-05 10:46:33,188 | uvicorn.error | [INFO] | Finished server process [41556]
+2022-12-05 11:54:06,850 | uvicorn.error | [INFO] | Started server process [13924]
+2022-12-05 11:54:06,851 | uvicorn.error | [INFO] | Waiting for application startup.
+2022-12-05 11:54:06,851 | uvicorn.error | [INFO] | Application startup complete.
+2022-12-05 11:54:06,852 | uvicorn.error | [INFO] | Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+2022-12-05 15:26:54,419 | uvicorn.error | [INFO] | Shutting down
+2022-12-05 15:26:54,532 | uvicorn.error | [INFO] | Waiting for application shutdown.
+2022-12-05 15:26:54,532 | uvicorn.error | [INFO] | Application shutdown complete.
+2022-12-05 15:26:54,532 | uvicorn.error | [INFO] | Finished server process [13924]
+2022-12-05 15:26:55,796 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-05 15:26:55,796 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-12-05 15:26:55,815 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-05 15:26:55,815 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-05 15:26:55,815 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-05 15:26:55,816 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-05 15:26:55,817 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-05 15:26:55,817 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-05 15:26:55,817 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-05 15:26:55,818 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-05 15:27:01,559 | uvicorn.error | [INFO] | Started server process [28180]
+2022-12-05 15:27:01,560 | uvicorn.error | [INFO] | Waiting for application startup.
+2022-12-05 15:27:01,560 | uvicorn.error | [INFO] | Application startup complete.
+2022-12-05 15:27:01,560 | uvicorn.error | [INFO] | Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+2022-12-05 15:27:10,271 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-05 15:27:11,491 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-12-05 15:27:11,492 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-05 15:27:11,493 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 3
+2022-12-05 15:27:14,784 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-05 15:27:15,348 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-05 15:27:15,391 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-05 15:27:15,452 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-05 15:27:15,593 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-05 15:27:15,607 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-05 15:27:15,655 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-05 15:27:15,701 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-05 15:34:26,822 | GroupFacebook | [INFO] | NUMBER OF POST IN Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR): 188
+2022-12-05 15:34:52,523 | uvicorn.error | [INFO] | Shutting down
+2022-12-05 15:35:30,505 | uvicorn.error | [INFO] | Started server process [47508]
+2022-12-05 15:35:30,506 | uvicorn.error | [INFO] | Waiting for application startup.
+2022-12-05 15:35:30,506 | uvicorn.error | [INFO] | Application startup complete.
+2022-12-05 15:35:30,506 | uvicorn.error | [INFO] | Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+2022-12-05 15:36:40,569 | uvicorn.error | [INFO] | Shutting down
+2022-12-05 17:44:42,695 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-05 17:44:42,737 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-05 17:44:42,842 | uvicorn.error | [INFO] | Started server process [51956]
+2022-12-05 17:44:42,842 | uvicorn.error | [INFO] | Waiting for application startup.
+2022-12-05 17:44:42,842 | uvicorn.error | [INFO] | Application startup complete.
+2022-12-05 17:44:42,843 | uvicorn.error | [INFO] | Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+2022-12-05 17:44:59,242 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-05 17:45:14,657 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-05 17:45:29,096 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-05 17:45:30,537 | uvicorn.error | [INFO] | Shutting down
+2022-12-12 09:04:00,671 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-12 09:04:00,717 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 09:04:15,567 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 09:04:33,895 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-12 09:04:47,911 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-12 09:05:05,763 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-12 09:05:20,074 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-12 09:05:36,298 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-12 09:05:52,910 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-12 09:06:08,486 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-12 09:06:22,883 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-12 09:06:39,060 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-12 09:06:53,187 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-12 09:07:09,609 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-12 09:07:23,988 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-12 09:07:40,252 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-12 09:21:32,384 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-12 09:21:32,397 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 09:21:46,622 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 09:22:03,117 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-12 09:22:17,387 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-12 09:22:33,434 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-12 09:22:47,800 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-12 09:23:06,056 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-12 09:23:22,907 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-12 09:23:40,143 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-12 09:23:54,569 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-12 09:24:12,378 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-12 09:24:26,684 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-12 09:24:43,171 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-12 09:24:57,652 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-12 09:25:15,956 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-12 09:25:30,089 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-12 09:29:38,311 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-12 09:29:38,327 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 09:29:38,327 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-12 09:29:38,328 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-12 09:29:38,328 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-12 09:29:38,328 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-12 09:29:38,328 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-12 09:29:38,329 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-12 09:29:38,330 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-12 09:29:58,429 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-12 09:29:59,559 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-12 09:30:00,155 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-12 09:30:00,393 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-12 09:30:00,409 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-12 09:30:00,441 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-12 09:30:00,553 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-12 09:30:00,584 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 09:38:46,792 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-12 09:38:46,832 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 09:38:46,833 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-12 09:38:46,833 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-12 09:38:46,833 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-12 09:38:46,833 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-12 09:38:46,834 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-12 09:38:46,834 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-12 09:38:46,834 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-12 09:39:07,835 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 09:39:08,177 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-12 09:39:08,351 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-12 09:39:08,697 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-12 09:39:09,225 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-12 09:39:09,240 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-12 09:39:09,649 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-12 09:39:09,659 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-12 10:09:29,154 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-12 10:09:29,157 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 10:09:29,157 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-12 10:09:29,157 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-12 10:09:29,158 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-12 10:09:29,158 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-12 10:09:29,159 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-12 10:09:29,159 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-12 10:09:29,160 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-12 10:09:45,812 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 10:09:48,334 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-12 10:09:48,528 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-12 10:09:48,552 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-12 10:09:48,600 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-12 10:09:50,237 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-12 10:09:58,362 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-12 10:10:06,852 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-12 10:28:22,019 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-12 10:28:22,058 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 10:28:22,059 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-12 10:28:22,059 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-12 10:28:22,059 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-12 10:28:22,060 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-12 10:28:22,061 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-12 10:28:22,061 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-12 10:28:22,061 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-12 10:30:47,004 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-12 10:30:47,024 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 10:33:00,552 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-12 10:33:00,603 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 10:33:18,582 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 10:33:34,847 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-12 10:33:54,316 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-12 10:34:11,842 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-12 10:34:33,103 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-12 10:34:50,390 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-12 10:35:09,538 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-12 10:35:27,251 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-12 10:35:48,017 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-12 10:36:04,693 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-12 10:36:23,854 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-12 10:36:41,041 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-12 10:37:00,294 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-12 10:37:18,296 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-12 10:37:36,576 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-12 10:44:08,641 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-12 10:44:08,662 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-12 10:44:26,796 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-14 11:42:29,713 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-14 11:42:29,743 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-14 11:42:49,773 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-14 11:43:07,472 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-14 11:43:29,288 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-14 11:43:45,421 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-14 11:44:04,167 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-14 11:44:21,162 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-14 11:44:39,972 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-14 11:44:57,071 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-14 11:45:18,987 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-14 11:45:37,690 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-14 11:46:23,321 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-14 11:46:44,643 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-14 11:47:03,472 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-14 11:47:21,005 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-14 11:47:39,922 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-14 11:47:49,604 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-14 11:47:49,620 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-14 11:47:49,621 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-14 11:47:49,621 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-14 11:47:49,621 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-14 11:47:49,622 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-14 11:47:49,622 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-14 11:47:49,623 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-14 11:47:49,623 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-14 11:48:13,733 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-14 11:48:13,827 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT tiki_lazada@protonmail.com
+2022-12-14 11:48:13,954 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-14 11:48:14,248 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-14 11:48:14,371 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-14 11:48:14,433 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-14 11:48:14,526 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-14 11:48:14,838 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
