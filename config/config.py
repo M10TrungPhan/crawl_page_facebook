@@ -17,4 +17,5 @@ class Config(metaclass=Singleton):
     account_fb_collection = os.getenv(ACCOUNT_FB_COLLECTION, "account_fb")
     time_update_post_collection = os.getenv(TIME_UPDATE_POST_COLLECTION, "time_update_post")
     list_fanpage_collection = os.getenv(LIST_FANPAGE_COLLECTION, 'list_fanpage')
+    interval_to_get_post = 2419200
 

@@ -135,11 +135,11 @@ class ManageAccountFacebook(Thread, metaclass=Singleton):
     def update_information_for_all_account(self):
         self.logger.info("UPDATE INFORMATION FOR ALL ACCOUNT")
         list_account = self.account_fb_collection.get_information_all_account()
-        for account in list_account:
-            self.update_information_for_account(account["user"], account["password"])
-        # with concurrent.futures.ThreadPoolExecutor(max_workers=len(list_account)) as executor:
-        #     [executor.submit(self.update_information_for_account, account["user"],
-        #                      account["password"]) for account in list_account]
+        # for account in list_account:
+        #     self.update_information_for_account(account["user"], account["password"])
+        with concurrent.futures.ThreadPoolExecutor(max_workers=len(list_account)) as executor:
+            [executor.submit(self.update_information_for_account, account["user"],
+                             account["password"]) for account in list_account]
 
     def check_account_block(self):
         return False
@@ -188,8 +188,8 @@ class ManageAccountFacebook(Thread, metaclass=Singleton):
         print("Start thread manage account")
         while True:
             print("UPDATE ALL ACCOUNT")
-            self.update_information_for_all_account()
             time.sleep(30*60)
+            self.update_information_for_all_account()
 
     def get_all_account_active(self):
         return self.account_fb_collection.get_all_account_active()

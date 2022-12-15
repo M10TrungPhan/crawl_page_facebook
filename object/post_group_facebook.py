@@ -463,6 +463,7 @@ class PostGroupFacebook:
     def process_post(self):
         thread_check_not_working = Thread(target=self.close_driver)
         thread_check_not_working.start()
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXX")
         self.get_content_2()
         self.get_image_for_post()
         if self.access_website() is None:

@@ -28586,3 +28586,60 @@ pymongo.errors.ServerSelectionTimeoutError: 172.29.13.23:20253: timed out, Timeo
 2022-12-14 11:48:14,433 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
 2022-12-14 11:48:14,526 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
 2022-12-14 11:48:14,838 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-15 11:16:14,453 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-12-15 11:16:27,108 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-15 11:16:28,147 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-12-15 11:16:28,148 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-15 11:16:28,149 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 8
+2022-12-15 11:17:08,909 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-12-15 11:17:21,736 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-15 11:17:22,957 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-12-15 11:17:22,958 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-15 11:17:22,959 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 8
+2022-12-15 11:24:15,975 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-12-15 11:24:28,476 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-15 11:24:29,927 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-12-15 11:24:29,929 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-15 11:24:29,929 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 3
+2022-12-15 11:26:35,504 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-12-15 11:26:47,993 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-15 11:26:48,978 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-12-15 11:26:48,980 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-15 11:26:48,980 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 4
+2022-12-15 11:30:26,590 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-12-15 11:30:39,167 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-15 11:30:40,523 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-12-15 11:30:40,524 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-15 11:30:40,525 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 0
+2022-12-15 11:32:12,427 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-15 11:32:12,427 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-12-15 11:32:12,459 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-15 11:32:25,055 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-15 11:32:26,060 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-12-15 11:32:26,062 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-15 11:32:26,063 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 3
+2022-12-15 11:32:33,142 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-15 11:32:47,526 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-15 11:33:08,544 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-15 11:33:24,517 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-15 11:33:48,226 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-15 11:35:08,395 | ManageAccountFacebook | [INFO] | UPDATE INFORMATION FOR ALL ACCOUNT
+2022-12-15 11:35:08,427 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-15 11:35:08,427 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-15 11:35:08,428 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-15 11:35:08,428 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-15 11:35:08,429 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-15 11:35:08,429 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-15 11:35:08,429 | ManageAccountFacebook | [INFO] | GET COOKIES FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-15 11:35:30,466 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT hieudan3123@outlook.com.vn
+2022-12-15 11:35:30,577 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT harkdead1@proton.me
+2022-12-15 11:35:31,682 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT txnnxt2k@gmail.com
+2022-12-15 11:35:31,849 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT phudh@proton.me
+2022-12-15 11:35:48,405 | CrawlFacebook | [INFO] | START CRAWL https://www.facebook.com/groups/khoahocxgr/
+2022-12-15 11:35:48,597 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT lionel_messsi_91_2000@proton.me
+2022-12-15 11:35:57,410 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT thanglq110900@gmail.com
+2022-12-15 11:35:57,800 | ManageAccountFacebook | [INFO] | GET TOKEN ACCESS FROM FACEBOOK WITH ACCOUNT linhnh2608@proton.me
+2022-12-15 11:36:01,046 | GroupFacebook | [INFO] | NUMBER OF POST CRAWLED: 0
+2022-12-15 11:36:02,133 | GroupFacebook | [INFO] | CRAWL PAGE: Cộng Đồng Chia Sẻ - Nâng Tầm Kiến Thức (XGR). ID PAGE: 441249175921600
+2022-12-15 11:36:02,135 | GroupFacebook | [INFO] | NUMBER POST HAVE CRAWLED: 0
+2022-12-15 11:36:02,136 | GroupFacebook | [INFO] | NUMBER POST IN QUEUES: 2

@@ -155,6 +155,11 @@ class GroupFacebook:
                 if self.time_post_update_collection.check_update_time(post_new):
                     # print("POST DOES NOT CHANGE")
                     continue
+
+                if self.config.interval_to_get_post is not None:
+                    if not (self.check_time_post_update(updated_time)):
+                        continue
+
                 postfb = PostGroupFacebook(self.url_group, id_post,
                                            self.path_save_data + self.name_group + "/", self.name_group)
                 postfb.content = each["message"]
@@ -192,11 +197,16 @@ class GroupFacebook:
                     if each["id"] in self.post_id_crawled:
                         continue
                     id_post = each["id"]
-                    update_time = each["updated_time"]
-                    post_new = {"_id": id_post, "updated_time": update_time}
+                    updated_time = each["updated_time"]
+                    post_new = {"_id": id_post, "updated_time": updated_time}
                     if self.time_post_update_collection.check_update_time(post_new):
                         # print("POST DOES NOT CHANGE")
                         continue
+
+                    if self.config.interval_to_get_post is not None:
+                        if not(self.check_time_post_update(updated_time)):
+                            continue
+
                     postfb = PostGroupFacebook(self.url_group, id_post,
                                                self.path_save_data + self.name_group + "/", self.name_group)
                     postfb.content = each["message"]
@@ -206,7 +216,8 @@ class GroupFacebook:
                 pass
         self.logger.info(f"NUMBER OF POST IN {self.name_group}: {self.post_queue.qsize()}")
 
-    def check_token_valid(self, jsonformat):
+    @staticmethod
+    def check_token_valid(jsonformat):
         if "error" in jsonformat.keys():
             if jsonformat["error"]["code"] == 102:
                 # self.token_and_cookies.update_new_token()
@@ -269,6 +280,11 @@ class GroupFacebook:
 
     def process_group(self):
         print(self.url_group)
+        if self.config.interval_to_get_post is not None:
+            days = self.config.interval_to_get_post // 86400
+            print(f"CRAWL POST IN RECENT {days} DAYS")
+        else:
+            print(f"CRAWL ALL POST")
         self.create_folder_save_data()
         self.load_post_id_have_crawled()
         self.request_first_page()
@@ -292,3 +308,28 @@ class GroupFacebook:
         thread_request_next_page.join()
         # thread_manage_crawler.join()
         self.logger.info(f"FINISHED CRAWL PAGE {self.name_group}. NUMBER POST HAVE CRAWLED: {self.number_post}")
+
+    @staticmethod
+    def process_time_updated(string_time):
+        # print(string_time)
+        regex_result = re.search(r"\+\d+", string_time)
+        if regex_result is not None:
+            start, end = regex_result.span()
+            string_time = string_time[:start]
+            return string_time
+        return string_time
+
+    def check_time_post_update(self, time_facebook):
+        time_facebook = self.process_time_updated(time_facebook)
+        time_facebook_tick = time.mktime(time.strptime(time_facebook, r"%Y-%m-%dT%H:%M:%S")) + 25200
+
+        interval = (time.time() - time_facebook_tick)
+        # print(interval)
+        days = interval // 86400
+        hour = interval % 86400 // 3600
+        minute = interval % 86400 % 3600 // 60
+        if int(interval) < self.config.interval_to_get_post:
+            return True
+        print(f"POST TOO OLD {days} days {hour}hours {minute} minute")
+        return False
+
